@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Joel Cribby's Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-sass": "node-sass style.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelyou20/Portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joelyou20/Portfolio/issues"
+  },
+  "homepage": "https://github.com/joelyou20/Portfolio#readme",
+  "devDependencies": {
+    "node-sass": "^4.14.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
