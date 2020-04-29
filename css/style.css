@@ -1,70 +1,82 @@
 p {
-  margin: auto;
-  font: bold 100% Verdana black; }
+  margin: auto; }
 
 .header {
   width: 100%;
   position: relative;
-  display: inline-flex; }
-  .header p {
-    text-shadow: 2px 2px 8px white; }
+  display: inline-flex;
+  align-content: center; }
   .header img {
     height: 200px;
     width: 200px; }
   .header #name {
     margin: 10px;
-    font: bold 200% Verdana black; }
+    align-content: center;
+    display: flex; }
+    .header #name p {
+      color: white;
+      font: bold 300% Verdana; }
   .header #details {
     padding: 10px;
-    background-color: #f7f2a8;
-    border-style: solid;
-    margin: 10px;
-    box-shadow: 5px 5px 5px #000000;
-    font: bold 100% Verdana black; }
+    margin: 10px; }
+    .header #details p {
+      color: white;
+      font: 150% Verdana; }
 
-.navbar {
+.navbar #github-icon img {
+  -webkit-filter: invert(100%) !important;
+  filter: none;
+  height: 32px;
+  width: 32px; }
+
+.navbar #github-icon:hover {
+  -webkit-filter: invert(100%) !important;
+  filter: none;
+  cursor: pointer; }
+
+.navbar #navlist {
   padding: 0px;
-  font-size: large;
-  align-items: baseline;
+  align-items: center;
+  font: 150% Verdana;
   flex-wrap: nowrap;
   display: flex;
   position: relative;
-  justify-content: center; }
-  .navbar p {
-    text-shadow: 2px 2px 8px white; }
-  .navbar .navItem {
+  justify-content: left; }
+  .navbar #navlist #navItem {
     padding: 10px; }
-    .navbar .navItem:hover {
-      text-shadow: 2px 2px 8px black;
-      color: white;
+    .navbar #navlist #navItem p {
+      font: 100% Verdana;
+      color: white; }
+    .navbar #navlist #navItem:hover p {
+      color: black;
+      text-shadow: white;
       cursor: pointer; }
 
 .content {
-  background-color: #11c9dd;
+  background-color: rgba(22, 171, 240, 0.73);
   height: 20px;
   margin: 15px;
   position: relative;
   border: thin black;
-  box-shadow: 10px 5px 5px #000000;
+  box-shadow: 10px 5px 5px black;
   opacity: 65%; }
   .content p {
+    color: white;
     opacity: 100%; }
 
-img.bg {
-  /* Set rules to fill background */
+.bg {
+  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg");
   min-height: 100%;
   min-width: 1024px;
-  /* Set up proportionate scaling */
+  background-position-y: 20%;
+  background-size: cover;
   width: 100%;
   height: auto;
-  /* Set up positioning */
   position: fixed;
   top: 0;
   left: 0; }
 
 @media screen and (max-width: 1024px) {
-  /* Specific to this particular image */
-  img.bg {
+  .bg {
     left: 50%;
-    margin-left: -512px;
-    /* 50% */ } }
+    margin-left: -512px; } }
