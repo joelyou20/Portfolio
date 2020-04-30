@@ -1,91 +1,161 @@
 @import "shared/scss/color";
 @import "shared/scss/font";
+@import "shared/scss/images";
+
+  
+@media screen and (max-width: 1024px) {
+  #bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+body {
+  padding: 50px 0 0;
+}
 
 p {
   margin: auto;
-  font: $h2-font;
 }
 
-.header {
-  width: 100%;
-  position: relative;
-  display: inline-flex;
-  p {
-    text-shadow: 2px 2px 8px rgb(255, 255, 255);
-  }
-  img {
-    height: 200px;
-    width: 200px;
-  }
-  #name {
-    margin: 10px;
-    font: $h1-font;
-  }
-  #details {
-    padding: 10px;
-    background-color: $highlight;
-    border-style: solid;
-    margin: 10px;
-    box-shadow: 5px 5px 5px #000000;
-    font: $h2-font;
+.bg-template {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1024px;
+  background-position-y: 20%;
+  width: auto;
+  height: 512px;
+}
+
+.about {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-1),
+      url($about-img);
   }
 }
 
+.recent-work {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-2),
+      url($recent-work-img);
+  }
+}
+
+.portfolio {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-1),
+      url($portfolio-img);
+  }
+}
+
+.contact {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-2),
+      url($contact-img);
+  }
+}
+  
 .navbar {
-  // background-color: $highlight;
-  // height: 20px;
-  padding: 0px;
-  font-size: large;
-  align-items: baseline;
-  flex-wrap: nowrap;
+  background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
+  position: fixed;
   display: flex;
-  position: relative;
-  justify-content: center;
-  p {
-    text-shadow: 2px 2px 8px rgb(255, 255, 255);
-  }
-  .navItem {
-    padding: 10px;
+  width: 100%;
+  padding: 0;
+  top: 0;
+  #github-icon {
+    img {
+      -webkit-filter: invert(100%) !important;
+      filter: none;
+      height: 32px;
+      width: 32px;
+    }
     &:hover {
-      text-shadow: 2px 2px 8px rgb(0, 0, 0);
-      color: white;
+      -webkit-filter: invert(100%) !important;
+      filter: none;
       cursor: pointer;
     }
   }
-}
+  #navlist {
+    padding: 0px;
+    align-items: center;
+    font: $h2-font;
+    flex-wrap: nowrap;
+    display: flex;
+    position: relative;
+    justify-content: left;
+    #navItem {
+      padding: 10px;
+      p {
+        font: $h3-font;
+        color: $font-primary;
+      }
+      &:hover {
+        p {
+          color: black;
+          text-shadow: white;
+          cursor: pointer;
+        }
+      }
+    }
 
-.content {
-  background-color: $secondary;
-  height: 20px;
-  margin: 15px;
-  position: relative;
-  border: thin black;
-  box-shadow: 10px 5px 5px $shadow;
-  opacity: 65%;
-  p {
-    opacity: 100%;
   }
 }
 
-img.bg {
+.section {
+  position: relative;
+  height: 512px;
+  .header {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    img {
+      height: 200px;
+      width: 200px;
+    }
+    #summary {
+      #name {
+        margin: 10px;
+        align-content: center;
+        display: flex;
+        p {
+          color: $font-primary;
+          font: $h1-font;
+        }
+      }
+      #details {
+        padding: 10px;
+        margin: 10px;
+        p {
+          color: $font-primary;
+          font: $h2-font;
+        }
+      }
+    }
+  }
   
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-	
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-	
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
+  .content {
+    background-color: $secondary-1;
+    height: 20px;
+    margin: 15px;
+    position: relative;
+    border: thin black;
+    box-shadow: 10px 5px 5px black;
+    opacity: 65%;
+    p {
+      color: $font-primary;
+      opacity: 100%;
+    }
   }
 }
