@@ -1,41 +1,78 @@
 @import "shared/scss/color";
 @import "shared/scss/font";
+@import "shared/scss/images";
+
+  
+@media screen and (max-width: 1024px) {
+  #bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+body {
+  padding: 50px 0 0;
+}
 
 p {
   margin: auto;
 }
 
-.header {
-  width: 100%;
-  position: relative;
-  display: inline-flex;
-  align-content: center;
-  img {
-    height: 200px;
-    width: 200px;
-  }
-  #name {
-    margin: 10px;
-    align-content: center;
-    display: flex;
-    p {
-      color: $font-primary;
-      font: $h1-font;
-    }
-  }
-  #details {
-    padding: 10px;
-    margin: 10px;
-    p {
-      color: $font-primary;
-      font: $h2-font;
-    }
+.bg-template {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1024px;
+  background-position-y: 20%;
+  width: auto;
+  height: 512px;
+}
+
+.about {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-1),
+      url($about-img);
   }
 }
 
+.recent-work {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-2),
+      url($recent-work-img);
+  }
+}
+
+.portfolio {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-1),
+      url($portfolio-img);
+  }
+}
+
+.contact {
+  #bg {
+    @extend .bg-template;
+    background-image:
+      linear-gradient(to bottom, $primary, $secondary-2),
+      url($contact-img);
+  }
+}
+  
 .navbar {
-  // background-color: $highlight;
-  // height: 20px;
+  background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  top: 0;
   #github-icon {
     img {
       -webkit-filter: invert(100%) !important;
@@ -75,39 +112,50 @@ p {
   }
 }
 
-.content {
-  background-color: $secondary;
-  height: 20px;
-  margin: 15px;
+.section {
   position: relative;
-  border: thin black;
-  box-shadow: 10px 5px 5px black;
-  opacity: 65%;
-  p {
-    color: $font-primary;
-    opacity: 100%;
+  height: 512px;
+  .header {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    img {
+      height: 200px;
+      width: 200px;
+    }
+    #summary {
+      #name {
+        margin: 10px;
+        align-content: center;
+        display: flex;
+        p {
+          color: $font-primary;
+          font: $h1-font;
+        }
+      }
+      #details {
+        padding: 10px;
+        margin: 10px;
+        p {
+          color: $font-primary;
+          font: $h2-font;
+        }
+      }
+    }
   }
-}
-
-.bg {
-  background-image:
-    linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)),
-    url('../shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg');
-  min-height: 100%;
-  min-width: 1024px;
-  background-position-y: 20%;
-  background-size: cover;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
   
-}
-
-@media screen and (max-width: 1024px) {
-  .bg {
-    left: 50%;
-    margin-left: -512px;
+  .content {
+    background-color: $secondary-1;
+    height: 20px;
+    margin: 15px;
+    position: relative;
+    border: thin black;
+    box-shadow: 10px 5px 5px black;
+    opacity: 65%;
+    p {
+      color: $font-primary;
+      opacity: 100%;
+    }
   }
 }
