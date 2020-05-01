@@ -3,13 +3,16 @@
     left: 50%;
     margin-left: -512px; } }
 
+html {
+  scroll-behavior: smooth; }
+
 body {
   padding: 50px 0 0; }
 
 p {
   margin: auto; }
 
-.bg-template, .about #bg, .recent-work #bg, .portfolio #bg, .contact #bg {
+.bg-template, #about #bg, #recent-work #bg, #portfolio #bg, #contact #bg {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -20,17 +23,25 @@ p {
   width: auto;
   height: 512px; }
 
-.about #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
+#about {
+  z-index: 0; }
+  #about #bg {
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
 
-.recent-work #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/apple-code-coding-computer-574069.jpg"); }
+#recent-work {
+  z-index: 0; }
+  #recent-work #bg {
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/apple-code-coding-computer-574069.jpg"); }
 
-.portfolio #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/iphone-notebook-pen-working-34578.jpg"); }
+#portfolio {
+  z-index: 0; }
+  #portfolio #bg {
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/iphone-notebook-pen-working-34578.jpg"); }
 
-.contact #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/three-black-handset-toys-821754.jpg"); }
+#contact {
+  z-index: 0; }
+  #contact #bg {
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/three-black-handset-toys-821754.jpg"); }
 
 .navbar {
   background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), #2b2b2b);
@@ -38,16 +49,20 @@ p {
   display: flex;
   width: 100%;
   padding: 0;
-  top: 0; }
-  .navbar #github-icon img {
-    -webkit-filter: invert(100%) !important;
-    filter: none;
-    height: 32px;
-    width: 32px; }
-  .navbar #github-icon:hover {
-    -webkit-filter: invert(100%) !important;
-    filter: none;
-    cursor: pointer; }
+  top: 0;
+  z-index: 50; }
+  .navbar .iconlist {
+    display: flex; }
+    .navbar .iconlist #icon img {
+      -webkit-filter: invert(100%) !important;
+      filter: invert(0%);
+      height: 32px;
+      width: 32px;
+      margin-left: 10px; }
+    .navbar .iconlist #icon:hover {
+      -webkit-filter: invert(100%) !important;
+      filter: invert(0%);
+      cursor: pointer; }
   .navbar #navlist {
     padding: 0px;
     align-items: center;
@@ -61,9 +76,11 @@ p {
       .navbar #navlist #navItem p {
         font: 100% Verdana;
         color: white; }
+      .navbar #navlist #navItem a {
+        text-decoration: none; }
       .navbar #navlist #navItem:hover p {
-        color: black;
-        text-shadow: white;
+        -webkit-filter: invert(100%) !important;
+        filter: none;
         cursor: pointer; }
 
 .section {
@@ -73,7 +90,8 @@ p {
     width: 100%;
     position: relative;
     display: inline-flex;
-    justify-content: center; }
+    justify-content: center;
+    padding-top: 50px; }
     .section .header img {
       height: 200px;
       width: 200px; }
