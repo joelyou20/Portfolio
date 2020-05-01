@@ -10,6 +10,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 50px 0 0;
 }
@@ -30,7 +34,8 @@ p {
   height: 512px;
 }
 
-.about {
+#about {
+  z-index: 0;
   #bg {
     @extend .bg-template;
     background-image:
@@ -39,7 +44,8 @@ p {
   }
 }
 
-.recent-work {
+#recent-work {
+  z-index: 0;
   #bg {
     @extend .bg-template;
     background-image:
@@ -48,7 +54,8 @@ p {
   }
 }
 
-.portfolio {
+#portfolio {
+  z-index: 0;
   #bg {
     @extend .bg-template;
     background-image:
@@ -57,7 +64,8 @@ p {
   }
 }
 
-.contact {
+#contact {
+  z-index: 0;
   #bg {
     @extend .bg-template;
     background-image:
@@ -73,17 +81,22 @@ p {
   width: 100%;
   padding: 0;
   top: 0;
-  #github-icon {
-    img {
-      -webkit-filter: invert(100%) !important;
-      filter: none;
-      height: 32px;
-      width: 32px;
-    }
-    &:hover {
-      -webkit-filter: invert(100%) !important;
-      filter: none;
-      cursor: pointer;
+  z-index: 50;
+  .iconlist {
+    display: flex;
+    #icon {
+      img {
+        -webkit-filter: invert(100%) !important;
+        filter: invert(0%);
+        height: 32px;
+        width: 32px;
+        margin-left: 10px;
+      }
+      &:hover {
+        -webkit-filter: invert(100%) !important;
+        filter: invert(0%);
+        cursor: pointer;
+      }
     }
   }
   #navlist {
@@ -100,10 +113,13 @@ p {
         font: $h3-font;
         color: $font-primary;
       }
+      a {
+        text-decoration: none;
+      }
       &:hover {
         p {
-          color: black;
-          text-shadow: white;
+          -webkit-filter: invert(100%) !important;
+          filter: none;
           cursor: pointer;
         }
       }
@@ -120,6 +136,7 @@ p {
     position: relative;
     display: inline-flex;
     justify-content: center;
+    padding-top: 50px;
     img {
       height: 200px;
       width: 200px;
