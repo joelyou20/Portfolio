@@ -1,0 +1,20 @@
+// @font-face {
+//     font-family: "Intro Inline";
+//     src: url("../fonts/intro_inline-webfont.woff2");
+//     }
+// @font-face {
+//     font-family: "Sketchetik";
+//     src: url("../fonts/sketchetik-light-webfont.woff");
+//     }
+@font-face {
+    font-family: "Code Bold";
+    src: url("../fonts/code_bold-webfont.woff");
+}
+@font-face {
+    font-family: "Code Light";
+    src: url("../fonts/code_light-webfont.woff");
+}
+
+$h1-font: bold 75px "Code Bold";
+$h2-font: 60px "Code Bold";
+$h3-font: 25px "Code Light";

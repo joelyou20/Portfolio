@@ -1,57 +1,123 @@
-@media screen and (max-width: 1024px) {
-  #bg {
-    left: 50%;
-    margin-left: -512px; } }
+@font-face {
+  font-family: "Code Bold";
+  src: url("../fonts/code_bold-webfont.woff"); }
 
-body {
-  padding: 50px 0 0; }
+@font-face {
+  font-family: "Code Light";
+  src: url("../fonts/code_light-webfont.woff"); }
+
+html {
+  scroll-behavior: smooth; }
 
 p {
   margin: auto; }
+  p #highlight {
+    background-color: rgba(255, 241, 112, 0.73);
+    color: #333333;
+    padding: 5px; }
+  p #underline {
+    text-decoration: underline rgba(255, 241, 112, 0.73); }
 
-.bg-template, .about #bg, .recent-work #bg, .portfolio #bg, .contact #bg {
+.bg-template, #about #bg, #recent-work #bg, #portfolio #bg, #contact #bg {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 1024px;
   background-position-y: 20%;
+  width: auto; }
+
+.content-template, #about, #recent-work, #portfolio, #contact {
+  z-index: 0;
+  position: relative; }
+
+#about #bg {
+  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
+
+#recent-work #bg {
+  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../images/apple-code-coding-computer-574069.jpg"); }
+
+#portfolio #bg {
+  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../images/iphone-notebook-pen-working-34578.jpg"); }
+
+#contact #bg {
+  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../images/three-black-handset-toys-821754.jpg"); }
+
+.button1 {
+  font: 25px "Code Light";
+  font-size: 25px;
   width: auto;
-  height: 512px; }
+  height: auto;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.05em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s; }
+  .button1:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer; }
 
-.about #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
+#menu-btn {
+  color: white;
+  position: fixed;
+  display: flex;
+  right: 0;
+  padding: 0;
+  top: 0;
+  margin: 15px;
+  text-decoration: none;
+  z-index: 50; }
+  #menu-btn i {
+    font-size: 30px; }
+  #menu-btn:hover {
+    -webkit-filter: invert(100%) !important;
+    filter: invert(0%);
+    transition: 0.2s ease-in-out;
+    cursor: pointer; }
 
-.recent-work #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/apple-code-coding-computer-574069.jpg"); }
-
-.portfolio #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../shared/images/iphone-notebook-pen-working-34578.jpg"); }
-
-.contact #bg {
-  background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../shared/images/three-black-handset-toys-821754.jpg"); }
+#menu-window {
+  right: 0;
+  position: fixed;
+  z-index: 49;
+  opacity: 0;
+  padding: 0 10px 0 10px;
+  transition: 0.2s ease-in-out; }
+  @media screen and (max-width: 1024px) {
+    #menu-window {
+      width: 100%;
+      display: flex; } }
+  #menu-window #menu-item {
+    font: 25px "Code Light";
+    font-size: x-large;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(2, 8, 48, 0.52);
+    color: white;
+    margin: 15px;
+    text-decoration: none; }
+    #menu-window #menu-item p:hover {
+      text-shadow: 2px 2px 8px rgba(255, 241, 112, 0.73);
+      font-weight: bold; }
 
 .navbar {
   background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), #2b2b2b);
   position: fixed;
   display: flex;
   width: 100%;
+  min-height: 50px;
   padding: 0;
-  top: 0; }
-  .navbar #github-icon img {
-    -webkit-filter: invert(100%) !important;
-    filter: none;
-    height: 32px;
-    width: 32px; }
-  .navbar #github-icon:hover {
-    -webkit-filter: invert(100%) !important;
-    filter: none;
-    cursor: pointer; }
+  top: 0;
+  z-index: 50; }
   .navbar #navlist {
     padding: 0px;
     align-items: center;
-    font: 150% Verdana;
+    font: 25px "Code Light";
+    font-size: 50%;
     flex-wrap: nowrap;
     display: flex;
     position: relative;
@@ -59,37 +125,82 @@ p {
     .navbar #navlist #navItem {
       padding: 10px; }
       .navbar #navlist #navItem p {
-        font: 100% Verdana;
+        font: 25px "Code Light";
         color: white; }
       .navbar #navlist #navItem:hover p {
-        color: black;
-        text-shadow: white;
+        -webkit-filter: invert(100%) !important;
+        filter: none;
         cursor: pointer; }
+      .navbar #navlist #navItem a {
+        text-decoration: none; }
 
 .section {
+  display: flex;
+  align-items: center;
+  height: -webkit-fill-available;
+  width: 100%;
   position: relative;
-  height: 512px; }
-  .section .header {
-    width: 100%;
-    position: relative;
-    display: inline-flex;
+  justify-content: center;
+  padding-top: 50px; }
+  .section img {
+    height: 200px;
+    width: 200px; }
+  .section #summary #title {
+    margin: 50px;
+    align-content: center;
+    display: flex; }
+    .section #summary #title p {
+      color: white;
+      font: bold 75px "Code Bold"; }
+  .section #summary #name {
+    margin: 10px;
+    align-content: center;
+    display: flex; }
+    .section #summary #name p {
+      color: white;
+      font: 60px "Code Bold"; }
+  .section #summary #details {
+    padding: 10px;
+    margin: 50px; }
+    @media screen and (max-width: 1024px) {
+      .section #summary #details {
+        padding: 10px;
+        margin: 10px; } }
+    .section #summary #details p {
+      color: white;
+      font: 25px "Code Light"; }
+  .section #summary #profile-pic-container {
+    display: flex;
     justify-content: center; }
-    .section .header img {
-      height: 200px;
-      width: 200px; }
-    .section .header #summary #name {
-      margin: 10px;
-      align-content: center;
-      display: flex; }
-      .section .header #summary #name p {
-        color: white;
-        font: bold 300% Verdana; }
-    .section .header #summary #details {
-      padding: 10px;
-      margin: 10px; }
-      .section .header #summary #details p {
-        color: white;
-        font: 150% Verdana; }
+    .section #summary #profile-pic-container #profile-pic {
+      position: relative;
+      height: 120px;
+      width: 120px;
+      margin: 25px 0 25px 0; }
+      .section #summary #profile-pic-container #profile-pic:hover {
+        cursor: pointer; }
+        .section #summary #profile-pic-container #profile-pic:hover #jc-pic {
+          opacity: 0; }
+        .section #summary #profile-pic-container #profile-pic:hover #git-pic {
+          opacity: 1; }
+      .section #summary #profile-pic-container #profile-pic img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+        height: 120px;
+        opacity: 1;
+        transition: .5s ease;
+        border-radius: 50%; }
+      .section #summary #profile-pic-container #profile-pic #jc-pic {
+        opacity: 1; }
+      .section #summary #profile-pic-container #profile-pic #git-pic {
+        opacity: 0; }
+  .section #summary #btnContainer {
+    justify-content: center;
+    display: flex; }
+    .section #summary #btnContainer a {
+      text-decoration: none; }
   .section .content {
     background-color: rgba(22, 171, 240, 0.73);
     height: 20px;

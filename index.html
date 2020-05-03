@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
+  <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
+  <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>J. Cribby Portfolio</title>
 </head>
 <body>
-  <div class="navbar">
-    <div id="github-icon">
-      <a href="https://github.com/joelyou20/Portfolio">
-        <img src="./shared/images/GitHub-Mark-120px-plus.jpg" alt="">
-      </a>
+  <!-- <div class="navbar">
+    <div class="iconlist">
+      <div id="icon">
+        <a href="https://github.com/joelyou20/">
+          <img src="./images/GitHub-Mark-120px-plus.jpg" alt="Github">
+        </a>
+      </div>
+      <div id="icon">
+        <a href="https://www.linkedin.com/in/joel-cribby/">
+          <img src="./images/LI-In-Bug.jpg" alt="LinkedIn">
+        </a>
+      </div>
     </div>
     <div id="navlist">
       <div id="navItem">
-        <p>ABOUT</p>
+        <a href="#about"><p>ABOUT</p></a>
       </div>
       <div id="navItem">
-        <p>RECENT WORK</p>
+        <a href="#recent-work"><p>RECENT WORK</p></a>
       </div>
       <div id="navItem">
-        <p>PORTFOLIO</p>
+        <a href="#portfolio"><p>PORTFOLIO</p></a>
       </div>
       <div id="navItem">
-        <p>CONTACT</p>
+        <a href="#contact"><p>CONTACT</p></a>
       </div>
     </div>
+  </div> -->
+  <div id="menu-btn" onmouseover="openMenu()">
+    <i class="fas fa-bars"></i>
   </div>
-  <div class="about">
+  <div id="menu-window"  onmouseleave="closeMenu()">
+    <a id="menu-item" href="#about"><p>ABOUT</p></a>
+    <a id="menu-item" href="#recent-work"><p>RECENT WORK</p></a>
+    <a id="menu-item" href="#portfolio"><p>PORTFOLIO</p></a>
+    <a id="menu-item" href="#contact"><p>CONTACT</p></a>
+  </div>
+  <div id="about">
     <div id="bg">
       <div class="section">
-        <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
-          <div id="summary">
-            <div id="name">
-              <p>ABOUT</p>
+        <div id="summary">
+          <div id="title">
+            <p>Hi, I'm <span id="highlight">Joel Cribby</span> and I have a <span id="underline">passion</span> for Software</p>
+          </div>
+          <a id="profile-pic-container" href="https://github.com/joelyou20/">
+            <div id="profile-pic">
+              <img id="jc-pic" src="./images/Joel_Cribby_Photo.jpg" />
+              <img id="git-pic" src="./images/GitHub-Mark-120px-plus.jpg" />
             </div>
-            <div id="details">
-              <p>
-                Passionate and dedicated Software Developer with a history in 
-                Web Application Design and DevOps system management.
-              </p>
-            </div>
+          </a>
+          <div id="btnContainer">
+            <a class="button1" href="#recent-work"><p>Check out my Work</p></a>
           </div>
         </div>
       </div>
+      <div><i class="fas fa-chevron-down"></i>
+        <i id="scrollDownButton" class="fas fa-chevron-down"></i>
+      </div>
     </div>
   </div>
-  <div class="recent-work">
+  <div id="recent-work">
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
-            <div id="name">
+            <div id="title">
               <p>RECENT WORK</p>
             </div>
             <div id="details">
@@ -67,13 +92,13 @@
       </div>
     </div>
   </div>
-  <div class="portfolio">
+  <div id="portfolio">
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
-            <div id="name">
+            <div id="title">
               <p>PORTFOLIO</p>
             </div>
             <div id="details">
@@ -87,18 +112,19 @@
       </div>
     </div>
   </div>
-  <div class="contact">
+  <div id="contact">
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
-            <div id="name">
+            <div id="title">
               <p>CONTACT</p>
             </div>
             <div id="details">
               <p>
                 PHONE #: 1-778-677-9799
+                <br>
                 EMAIL: joelcribby@gmail.com
               </p>
             </div>
