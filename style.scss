@@ -1,6 +1,6 @@
-@import "shared/scss/color";
-@import "shared/scss/font";
-@import "shared/scss/images";
+@import "scss/color";
+@import "scss/font";
+@import "scss/images";
 
 html {
   scroll-behavior: smooth;
@@ -95,6 +95,55 @@ p {
   }
 }
 
+#menu-btn {
+  color: white;
+  position: fixed;
+  display: flex;
+  right: 0;
+  padding: 0;
+  top: 0;
+  margin: 15px;
+  text-decoration:none;
+  z-index: 50;
+  i {
+    font-size: 30px;
+  }
+  &:hover {
+    -webkit-filter: invert(100%) !important;
+    filter: invert(0%);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+#menu-window {
+  right: 0;
+  position: fixed;
+  z-index: 49;
+  opacity: 0;
+  padding: 0 10px 0 10px;
+  transition: 0.2s ease-in-out;
+  @media screen and (max-width: 1024px){
+    width: 100%;
+    display: flex;
+  }
+  #menu-item {
+    font: $h3-font;
+    font-size: x-large;
+    font-weight: bold;
+    text-shadow: 0 2px 8px $font-secondary;
+    color: $font-primary;
+    margin: 15px;
+    text-decoration: none;
+    p {
+      &:hover {
+        text-shadow: 2px 2px 8px $secondary-2;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
 .navbar {
   background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
   position: fixed;
@@ -104,23 +153,6 @@ p {
   padding: 0;
   top: 0;
   z-index: 50;
-  .iconlist {
-    display: flex;
-    #icon {
-      img {
-        -webkit-filter: invert(100%) !important;
-        filter: invert(0%);
-        height: 32px;
-        width: 32px;
-        margin-left: 10px;
-      }
-      &:hover {
-        -webkit-filter: invert(100%) !important;
-        filter: invert(0%);
-        cursor: pointer;
-      }
-    }
-  }
   #navlist {
     padding: 0px;
     align-items: center;
@@ -154,90 +186,86 @@ p {
 .section {
   display: flex;
   align-items: center;
-  position: inherit;
-  height: 88vw;
-  .header {
-    width: 100%;
-    position: absolute;
-    display: inline-flex;
-    justify-content: center;
-    padding-top: 50px;
-    img {
-      height: 200px;
-      width: 200px;
+  height: -webkit-fill-available;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  padding-top: 50px;
+  img {
+    height: 200px;
+    width: 200px;
+  }
+  #summary {
+    #title {
+      margin: 50px;
+      align-content: center;
+      display: flex;
+      p {
+        color: $font-primary;
+        font: $h1-font;
+      }
     }
-    #summary {
-      #title {
-        margin: 50px;
-        align-content: center;
-        display: flex;
-        p {
-          color: $font-primary;
-          font: $h1-font;
-        }
+    #name {
+      margin: 10px;
+      align-content: center;
+      display: flex;
+      p {
+        color: $font-primary;
+        font: $h2-font;
       }
-      #name {
-        margin: 10px;
-        align-content: center;
-        display: flex;
-        p {
-          color: $font-primary;
-          font: $h2-font;
-        }
-      }
-      #details {
-        @media screen and (max-width: 1024px) {
-          padding: 10px;
-          margin: 10px;
-        }
+    }
+    #details {
+      @media screen and (max-width: 1024px) {
         padding: 10px;
-        margin: 50px;
-        p {
-          color: $font-primary;
-          font: $h3-font;
-        }
+        margin: 10px;
       }
-      #profile-pic-container {
-        display: flex;
-        justify-content: center;
-        #profile-pic {
-          position: relative;
-          height: 120px;
-          width: 120px;
-          margin: 25px 0 25px 0;
-          &:hover {
-            cursor: pointer;
-            #jc-pic {
-              opacity: 0;
-            }
-            #git-pic {
-              opacity: 1;
-            }
-          }
-          img {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 120px;
-            height: 120px;
-            opacity: 1;
-            transition: .5s ease;
-            border-radius: 50%;
-          }
+      padding: 10px;
+      margin: 50px;
+      p {
+        color: $font-primary;
+        font: $h3-font;
+      }
+    }
+    #profile-pic-container {
+      display: flex;
+      justify-content: center;
+      #profile-pic {
+        position: relative;
+        height: 120px;
+        width: 120px;
+        margin: 25px 0 25px 0;
+        &:hover {
+          cursor: pointer;
           #jc-pic {
-            opacity: 1;
-          }
-          #git-pic {
             opacity: 0;
           }
+          #git-pic {
+            opacity: 1;
+          }
+        }
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 120px;
+          height: 120px;
+          opacity: 1;
+          transition: .5s ease;
+          border-radius: 50%;
+        }
+        #jc-pic {
+          opacity: 1;
+        }
+        #git-pic {
+          opacity: 0;
         }
       }
-      #btnContainer {
-        justify-content: center;
-        display: flex;
-        a {
-          text-decoration: none;
-        }
+    }
+    #btnContainer {
+      justify-content: center;
+      display: flex;
+      a {
+        text-decoration: none;
       }
     }
   }
