@@ -4,10 +4,10 @@
 
   
 @media screen and (max-width: 1024px) {
-  #bg {
-    left: 50%;
-    margin-left: -512px;
-  }
+  // #bg {
+  //   left: 50%;
+  //   margin-left: -512px;
+  // }
 }
 
 html {
@@ -31,11 +31,17 @@ p {
   min-width: 1024px;
   background-position-y: 20%;
   width: auto;
-  height: 512px;
 }
 
-#about {
+.content-template {
   z-index: 0;
+  position: relative;
+}
+
+
+
+#about {
+  @extend .content-template;
   #bg {
     @extend .bg-template;
     background-image:
@@ -45,7 +51,7 @@ p {
 }
 
 #recent-work {
-  z-index: 0;
+  @extend .content-template;
   #bg {
     @extend .bg-template;
     background-image:
@@ -55,7 +61,7 @@ p {
 }
 
 #portfolio {
-  z-index: 0;
+  @extend .content-template;
   #bg {
     @extend .bg-template;
     background-image:
@@ -65,7 +71,7 @@ p {
 }
 
 #contact {
-  z-index: 0;
+  @extend .content-template;
   #bg {
     @extend .bg-template;
     background-image:
@@ -129,11 +135,11 @@ p {
 }
 
 .section {
-  position: relative;
-  height: 512px;
+  position: inherit;
+  height: 888px;
   .header {
     width: 100%;
-    position: relative;
+    position: absolute;
     display: inline-flex;
     justify-content: center;
     padding-top: 50px;
