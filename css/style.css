@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Code Bold";
+  src: url("../shared/fonts/code_bold-webfont.woff"); }
+
+@font-face {
+  font-family: "Code Light";
+  src: url("../shared/fonts/code_light-webfont.woff"); }
+
 html {
   scroll-behavior: smooth; }
 
@@ -6,6 +14,12 @@ body {
 
 p {
   margin: auto; }
+  p #highlight {
+    background-color: rgba(255, 241, 112, 0.73);
+    color: #333333;
+    padding: 5px; }
+  p #underline {
+    text-decoration: underline rgba(255, 241, 112, 0.73); }
 
 .bg-template, #about #bg, #recent-work #bg, #portfolio #bg, #contact #bg {
   background-repeat: no-repeat;
@@ -38,6 +52,7 @@ p {
   position: fixed;
   display: flex;
   width: 100%;
+  min-height: 50px;
   padding: 0;
   top: 0;
   z-index: 50; }
@@ -56,7 +71,8 @@ p {
   .navbar #navlist {
     padding: 0px;
     align-items: center;
-    font: 150% Verdana;
+    font: 300% "Code Light";
+    font-size: 50%;
     flex-wrap: nowrap;
     display: flex;
     position: relative;
@@ -64,7 +80,7 @@ p {
     .navbar #navlist #navItem {
       padding: 10px; }
       .navbar #navlist #navItem p {
-        font: 100% Verdana;
+        font: 300% "Code Light";
         color: white; }
       .navbar #navlist #navItem a {
         text-decoration: none; }
@@ -85,19 +101,26 @@ p {
     .section .header img {
       height: 200px;
       width: 200px; }
+    .section .header #summary #title {
+      margin: 10px;
+      align-content: center;
+      display: flex; }
+      .section .header #summary #title p {
+        color: white;
+        font: bold 400% "Code Bold"; }
     .section .header #summary #name {
       margin: 10px;
       align-content: center;
       display: flex; }
       .section .header #summary #name p {
         color: white;
-        font: bold 300% Verdana; }
+        font: 350% "Code Bold"; }
     .section .header #summary #details {
       padding: 10px;
       margin: 10px; }
       .section .header #summary #details p {
         color: white;
-        font: 150% Verdana; }
+        font: 300% "Code Light"; }
   .section .content {
     background-color: rgba(22, 171, 240, 0.73);
     height: 20px;
