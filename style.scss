@@ -2,20 +2,8 @@
 @import "shared/scss/font";
 @import "shared/scss/images";
 
-  
-@media screen and (max-width: 1024px) {
-  // #bg {
-  //   left: 50%;
-  //   margin-left: -512px;
-  // }
-}
-
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  padding: 50px 0 0;
 }
 
 p {
@@ -36,7 +24,6 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-width: 1024px;
   background-position-y: 20%;
   width: auto;
 }
@@ -45,8 +32,6 @@ p {
   z-index: 0;
   position: relative;
 }
-
-
 
 #about {
   @extend .content-template;
@@ -87,7 +72,29 @@ p {
       url($contact-img);
   }
 }
-  
+
+.button1 {
+  font: $h3-font;
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding:0.35em 1.2em;
+  border:0.05em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  &:hover {
+    color:#000000;
+    background-color:#FFFFFF;
+    cursor: pointer;
+  }
+}
+
 .navbar {
   background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
   position: fixed;
@@ -129,9 +136,6 @@ p {
         font: $h3-font;
         color: $font-primary;
       }
-      a {
-        text-decoration: none;
-      }
       &:hover {
         p {
           -webkit-filter: invert(100%) !important;
@@ -139,14 +143,19 @@ p {
           cursor: pointer;
         }
       }
+      a {
+        text-decoration: none;
+      }
     }
 
   }
 }
 
 .section {
+  display: flex;
+  align-items: center;
   position: inherit;
-  height: 888px;
+  height: 88vw;
   .header {
     width: 100%;
     position: absolute;
@@ -159,7 +168,7 @@ p {
     }
     #summary {
       #title {
-        margin: 10px;
+        margin: 50px;
         align-content: center;
         display: flex;
         p {
@@ -177,11 +186,57 @@ p {
         }
       }
       #details {
+        @media screen and (max-width: 1024px) {
+          padding: 10px;
+          margin: 10px;
+        }
         padding: 10px;
-        margin: 10px;
+        margin: 50px;
         p {
           color: $font-primary;
           font: $h3-font;
+        }
+      }
+      #profile-pic-container {
+        display: flex;
+        justify-content: center;
+        #profile-pic {
+          position: relative;
+          height: 120px;
+          width: 120px;
+          margin: 25px 0 25px 0;
+          &:hover {
+            cursor: pointer;
+            #jc-pic {
+              opacity: 0;
+            }
+            #git-pic {
+              opacity: 1;
+            }
+          }
+          img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            height: 120px;
+            opacity: 1;
+            transition: .5s ease;
+            border-radius: 50%;
+          }
+          #jc-pic {
+            opacity: 1;
+          }
+          #git-pic {
+            opacity: 0;
+          }
+        }
+      }
+      #btnContainer {
+        justify-content: center;
+        display: flex;
+        a {
+          text-decoration: none;
         }
       }
     }
