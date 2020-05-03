@@ -19,10 +19,10 @@ function preloadImages(array) {
 }
 
 $(document).ready(preloadImages([
-    "./shared/images/apple-code-coding-computer-574069.jpg", 
-    "./shared/images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg",
-    "./shared/images/iphone-notebook-pen-working-34578.jpg",
-    "./shared/images/three-black-handset-toys-821754.jpg",
-    "./shared/images/LI-In-Bug.jpg",
-    "./shared/images/GitHub-Mark-120px-plus.jpg"
+    "./images/apple-code-coding-computer-574069.jpg", 
+    "./images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg",
+    "./images/iphone-notebook-pen-working-34578.jpg",
+    "./images/three-black-handset-toys-821754.jpg",
+    "./images/LI-In-Bug.jpg",
+    "./images/GitHub-Mark-120px-plus.jpg"
 ], true));

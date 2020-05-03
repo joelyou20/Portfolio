@@ -2,25 +2,26 @@
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scroll.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./cache.js"></script>
-  <meta property="og:image" content="./shared/images/Joel_Cribby_Photo.jpg" />
+  <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
+  <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
+  <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>J. Cribby Portfolio</title>
 </head>
 <body>
-  <div class="navbar">
+  <!-- <div class="navbar">
     <div class="iconlist">
       <div id="icon">
         <a href="https://github.com/joelyou20/">
-          <img src="./shared/images/GitHub-Mark-120px-plus.jpg" alt="Github">
+          <img src="./images/GitHub-Mark-120px-plus.jpg" alt="Github">
         </a>
       </div>
       <div id="icon">
         <a href="https://www.linkedin.com/in/joel-cribby/">
-          <img src="./shared/images/LI-In-Bug.jpg" alt="LinkedIn">
+          <img src="./images/LI-In-Bug.jpg" alt="LinkedIn">
         </a>
       </div>
     </div>
@@ -38,26 +39,32 @@
         <a href="#contact"><p>CONTACT</p></a>
       </div>
     </div>
+  </div> -->
+  <div id="menu-btn" onmouseover="openMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div id="menu-window"  onmouseleave="closeMenu()">
+    <a id="menu-item" href="#about"><p>ABOUT</p></a>
+    <a id="menu-item" href="#recent-work"><p>RECENT WORK</p></a>
+    <a id="menu-item" href="#portfolio"><p>PORTFOLIO</p></a>
+    <a id="menu-item" href="#contact"><p>CONTACT</p></a>
   </div>
   <div id="about">
     <div id="bg">
       <div class="section">
-        <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
-          <div id="summary">
-            <div id="title">
-              <p>Hi, I'm <span id="highlight">Joel Cribby</span> and I have a <span id="underline">passion</span> for Software</p>
+        <div id="summary">
+          <div id="title">
+            <p>Hi, I'm <span id="highlight">Joel Cribby</span> and I have a <span id="underline">passion</span> for Software</p>
+          </div>
+          <a id="profile-pic-container" href="https://github.com/joelyou20/">
+            <div id="profile-pic">
+              <img id="jc-pic" src="./images/Joel_Cribby_Photo.jpg" />
+              <img id="git-pic" src="./images/GitHub-Mark-120px-plus.jpg" />
             </div>
-            <a id="profile-pic-container" href="https://github.com/joelyou20/">
-              <div id="profile-pic">
-                <img id="jc-pic" src="./shared/images/Joel_Cribby_Photo.jpg" />
-                <img id="git-pic" src="./shared/images/GitHub-Mark-120px-plus.jpg" />
-              </div>
-            </a>
-            <div id="btnContainer">
-              <a class="button1" href="#recent-work"><p>Check out my Work</p></a>
-            </div>
-            </div>
+          </a>
+          <div id="btnContainer">
+            <a class="button1" href="#recent-work"><p>Check out my Work</p></a>
+          </div>
         </div>
       </div>
       <div><i class="fas fa-chevron-down"></i>
@@ -69,7 +76,7 @@
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
             <div id="title">
               <p>RECENT WORK</p>
@@ -89,7 +96,7 @@
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
             <div id="title">
               <p>PORTFOLIO</p>
@@ -109,7 +116,7 @@
     <div id="bg">
       <div class="section">
         <div class="header">
-          <!-- <img src="./shared/images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
           <div id="summary">
             <div id="title">
               <p>CONTACT</p>
