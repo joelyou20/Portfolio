@@ -35,6 +35,18 @@ p {
 
 #about {
   @extend .content-template;
+  clip-path: polygon(
+    0 0, /* left top */
+    100% 0, /* right top */ 
+    100% 100%, /* right bottom */
+    0 90% /* left bottom */
+  );
+  #title {
+    @media screen and (max-width: 1024px){
+      width: auto;
+    }
+    width: 786px;
+  }
   #bg {
     @extend .bg-template;
     background-image:
@@ -47,29 +59,42 @@ p {
   @extend .content-template;
   #bg {
     @extend .bg-template;
-    background-image:
-      linear-gradient(to bottom, $primary, $secondary-2),
-      url($recent-work-img);
+    background-color: white;
+    .section {
+      #summary {
+        #title {
+          margin: 0px;
+          p {
+            color: black;
+          }
+        }
+      }
+    }
   }
 }
 
 #portfolio {
   @extend .content-template;
+  clip-path: polygon(0% 0%, 100% 6%, 100% 100%, 0 100%);
   #bg {
     @extend .bg-template;
     background-image:
-      linear-gradient(to bottom, $primary, $secondary-1),
+    linear-gradient(to bottom, $primary, $secondary-2),
       url($portfolio-img);
   }
 }
 
 #contact {
   @extend .content-template;
+  height: 400px;
+  p {
+    font: $h1-font;
+    font-size: 300%;
+    color: white;
+  }
   #bg {
     @extend .bg-template;
-    background-image:
-      linear-gradient(to bottom, $primary, $secondary-2),
-      url($contact-img);
+    background-color: black;
   }
 }
 
@@ -144,42 +169,47 @@ p {
   }
 }
 
-.navbar {
-  background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
-  position: fixed;
+#expand-details-btn {
+  background-color: $secondary-1;
+  font-weight: bolder;
+  color: white;
+  border-radius: 25px;
+  box-shadow: 3px 0px 10px black;
+  padding: 10px;
+  height: 50px;
+  width: 175px;
   display: flex;
-  width: 100%;
-  min-height: 50px;
-  padding: 0;
-  top: 0;
-  z-index: 50;
-  #navlist {
-    padding: 0px;
-    align-items: center;
-    font: $h3-font;
-    font-size: 50%;
-    flex-wrap: nowrap;
-    display: flex;
-    position: relative;
-    justify-content: left;
-    #navItem {
-      padding: 10px;
-      p {
-        font: $h3-font;
-        color: $font-primary;
-      }
-      &:hover {
-        p {
-          -webkit-filter: invert(100%) !important;
-          filter: none;
-          cursor: pointer;
-        }
-      }
-      a {
-        text-decoration: none;
-      }
+  justify-content: center;
+  align-items: center;
+  p {
+    display: inline;
+    margin: 10px;
+  }
+  &:hover {
+    background-color: $font-primary;
+    color: $font-secondary;
+    box-shadow: 3px 0px 10px $secondary-1;
+    cursor: pointer;
+    p {
+      display: none;
     }
+    &::after {
+      content: "Click me";
+    }
+  }
+}
 
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  &:hover {
+    background-color: #717171;
   }
 }
 
@@ -190,12 +220,14 @@ p {
   width: 100%;
   position: relative;
   justify-content: center;
-  padding-top: 50px;
   img {
     height: 200px;
     width: 200px;
   }
   #summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     #title {
       margin: 50px;
       align-content: center;
@@ -214,16 +246,81 @@ p {
         font: $h2-font;
       }
     }
-    #details {
-      @media screen and (max-width: 1024px) {
-        padding: 10px;
-        margin: 10px;
+    #details-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      #nav-btn {
+        font-size: xx-large;
+        color: black;
+        margin: 0 25px 0 25px;
+        &:hover {
+          color: white;
+        }
       }
-      padding: 10px;
-      margin: 50px;
-      p {
-        color: $font-primary;
-        font: $h3-font;
+      #details {
+        @media screen and (max-width: 1024px) {
+          padding: 10px;
+          margin: 10px;
+        } 
+        display: flex;
+        flex-direction: column;
+        margin: 0 25px 0 25px;
+        padding: 20px;
+        transition: 0.5s ease-in-out;
+        #job-header {
+          display: flex;
+          align-items: flex-end;
+          img {
+            height: auto;
+            width: 50%;
+          }
+          #work-info {
+            display: grid;
+            #company-name {
+              font: $h2-font;
+              text-shadow: 3px 0px 10px black;
+            }
+            #job-title {
+              font: $h3-font;
+              font-weight: bolder;
+              color: blue;
+              text-shadow: 3px 0px 10px black;
+            }
+          }
+        }
+        #job-tag {
+          margin: 20px;
+          p {
+            font: $h1-font;
+            font-size: 150%;
+            color: black; 
+          }
+        }
+        #skills {
+          list-style-type: none;
+          li {
+            display: flex;
+            margin-bottom: 10px;
+            color: black; 
+            p {
+              color: rgb(80, 80, 80);
+              font: $h3-font;
+              font-weight: bolder;
+              margin-left: 20px;
+            }
+          }
+          i {
+            font-size: xx-large;
+            color: rgb(41, 41, 41);
+            text-shadow: 4px 2px 4px lightgray;
+          }
+        }
+        p {
+          color: $font-primary;
+          font: $h3-font;
+          margin-left: 20px;
+        }
       }
     }
     #profile-pic-container {

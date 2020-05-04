@@ -5,6 +5,8 @@
   <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
   <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
   <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/details.js"></script>
+  <script language="JavaScript" type="text/javascript" src="./scripts/workSlide.js"></script>
   <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
   <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,34 +14,6 @@
   <title>J. Cribby Portfolio</title>
 </head>
 <body>
-  <!-- <div class="navbar">
-    <div class="iconlist">
-      <div id="icon">
-        <a href="https://github.com/joelyou20/">
-          <img src="./images/GitHub-Mark-120px-plus.jpg" alt="Github">
-        </a>
-      </div>
-      <div id="icon">
-        <a href="https://www.linkedin.com/in/joel-cribby/">
-          <img src="./images/LI-In-Bug.jpg" alt="LinkedIn">
-        </a>
-      </div>
-    </div>
-    <div id="navlist">
-      <div id="navItem">
-        <a href="#about"><p>ABOUT</p></a>
-      </div>
-      <div id="navItem">
-        <a href="#recent-work"><p>RECENT WORK</p></a>
-      </div>
-      <div id="navItem">
-        <a href="#portfolio"><p>PORTFOLIO</p></a>
-      </div>
-      <div id="navItem">
-        <a href="#contact"><p>CONTACT</p></a>
-      </div>
-    </div>
-  </div> -->
   <div id="menu-btn" onmouseover="openMenu()">
     <i class="fas fa-bars"></i>
   </div>
@@ -67,26 +41,50 @@
           </div>
         </div>
       </div>
-      <div><i class="fas fa-chevron-down"></i>
+      <!-- <div><i class="fas fa-chevron-down"></i>
         <i id="scrollDownButton" class="fas fa-chevron-down"></i>
-      </div>
+      </div> -->
     </div>
   </div>
   <div id="recent-work">
     <div id="bg">
       <div class="section">
-        <div class="header">
-          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
-          <div id="summary">
-            <div id="title">
-              <p>RECENT WORK</p>
-            </div>
+        <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
+        <div id="summary">
+          <div id="title">
+            <p>Recent Work</p>
+          </div>
+          <div id="details-slide">
+            <!-- <i id="nav-btn" class="fas fa-chevron-left"></i> -->
             <div id="details">
-              <p>
-                Passionate and dedicated Software Developer with a history in 
-                Web Application Design and DevOps system management.
-              </p>
+              <div id="job-header">
+                <img src="./images/Express.png">
+                <div id="work-info">
+                  <p id="company-name">
+                    EncoreFX
+                  </p>
+                  <p id="job-title">
+                    Software Developer
+                  </p>
+                </div>
+              </div>
+              <div id="job-tag">
+                <p>
+                  Operated as Devops lead for a Web Application project with a focus on Gitlab ci and deployments using IIS and node-js.
+                </p>
+              </div>
+              <ul id="skills">
+                <li><i class="fab fa-gitlab" style="color: darkorange;"></i><p>Gitlab was used for project management as well as CI/CD</p></li>
+                <li><i class="fab fa-windows" style="color: skyblue;"></i><p>Internet Information Services served as the deployment tool</p></li>
+                <li><i class="fab fa-node-js" style="color: green;"></i><p>Node tools such as npm were used to manage and publish new versions </p></li>
+              </ul>
             </div>
+            <div>
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            <!-- <i id="nav-btn" class="fas fa-chevron-right"></i> -->
           </div>
         </div>
       </div>
