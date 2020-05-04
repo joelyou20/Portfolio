@@ -35,6 +35,7 @@ p {
 
 #about {
   @extend .content-template;
+  height: -webkit-fill-available;
   clip-path: polygon(
     0 0, /* left top */
     100% 0, /* right top */ 
@@ -52,6 +53,12 @@ p {
     background-image:
       linear-gradient(to bottom, $primary, $secondary-1),
       url($about-img);
+    .section {
+      @media screen and (max-width: 1024px){
+        display: block;
+      }
+      display: flex;
+    }
   }
 }
 
@@ -132,6 +139,7 @@ p {
   z-index: 50;
   i {
     font-size: 30px;
+    text-shadow: 2px 2px 8px black;
   }
   &:hover {
     -webkit-filter: invert(100%) !important;
@@ -156,7 +164,7 @@ p {
     font: $h3-font;
     font-size: x-large;
     font-weight: bold;
-    text-shadow: 0 2px 8px $font-secondary;
+    text-shadow: 1px 1px 4px black;
     color: $font-primary;
     margin: 15px;
     text-decoration: none;
@@ -214,10 +222,10 @@ p {
 }
 
 .section {
-  display: flex;
   align-items: center;
   height: -webkit-fill-available;
   width: 100%;
+  padding: 100px;
   position: relative;
   justify-content: center;
   img {
