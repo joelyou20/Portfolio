@@ -129,15 +129,16 @@ p {
     #menu-window {
       width: 100%;
       display: flex; } }
-  #menu-window #menu-item {
+  #menu-window .menu-item {
     font: 25px "Code Light";
     font-size: x-large;
     font-weight: bold;
     text-shadow: 1px 1px 4px black;
     color: white;
     margin: 15px;
+    display: none;
     text-decoration: none; }
-    #menu-window #menu-item p:hover {
+    #menu-window .menu-item p:hover {
       font-size: xx-large;
       font-weight: bold; }
 

@@ -170,13 +170,14 @@ p {
     width: 100%;
     display: flex;
   }
-  #menu-item {
+  .menu-item {
     font: $h3-font;
     font-size: x-large;
     font-weight: bold;
     text-shadow: 1px 1px 4px black;
     color: $font-primary;
     margin: 15px;
+    display: none;
     text-decoration: none;
     p {
       &:hover {
