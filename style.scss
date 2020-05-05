@@ -4,6 +4,16 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 p {
@@ -35,11 +45,26 @@ p {
 
 #about {
   @extend .content-template;
+  clip-path: polygon(
+    0 0, /* left top */
+    100% 0, /* right top */ 
+    100% 100%, /* right bottom */
+    0 90% /* left bottom */
+  );
+  #title {
+    width: 100%;
+  }
   #bg {
     @extend .bg-template;
     background-image:
       linear-gradient(to bottom, $primary, $secondary-1),
       url($about-img);
+    .section {
+      padding: 200px;
+      @media screen and (max-width: 1024px){
+        padding: 100px;
+      }
+    }
   }
 }
 
@@ -47,29 +72,45 @@ p {
   @extend .content-template;
   #bg {
     @extend .bg-template;
-    background-image:
-      linear-gradient(to bottom, $primary, $secondary-2),
-      url($recent-work-img);
+    background-color: white;
+    .section {
+      // height: 1024px;
+      #summary {
+        #title {
+          margin: 0px;
+          p {
+            color: black;
+          }
+        }
+      }
+    }
   }
 }
 
 #portfolio {
   @extend .content-template;
+  clip-path: polygon(0% 0%, 100% 6%, 100% 100%, 0 100%);
   #bg {
     @extend .bg-template;
     background-image:
-      linear-gradient(to bottom, $primary, $secondary-1),
+    linear-gradient(to bottom, $primary, $secondary-2),
       url($portfolio-img);
   }
 }
 
 #contact {
   @extend .content-template;
+  p {
+    font: $h1-font;
+    font-size: 300%;
+    color: white;
+  }
   #bg {
+    .section {
+      padding: 10px 0 50px 0;
+    }
     @extend .bg-template;
-    background-image:
-      linear-gradient(to bottom, $primary, $secondary-2),
-      url($contact-img);
+    background-color: black;
   }
 }
 
@@ -107,6 +148,7 @@ p {
   z-index: 50;
   i {
     font-size: 30px;
+    text-shadow: 2px 2px 8px black;
   }
   &:hover {
     -webkit-filter: invert(100%) !important;
@@ -123,6 +165,7 @@ p {
   opacity: 0;
   padding: 0 10px 0 10px;
   transition: 0.2s ease-in-out;
+  text-align: end;
   @media screen and (max-width: 1024px){
     width: 100%;
     display: flex;
@@ -131,71 +174,206 @@ p {
     font: $h3-font;
     font-size: x-large;
     font-weight: bold;
-    text-shadow: 0 2px 8px $font-secondary;
+    text-shadow: 1px 1px 4px black;
     color: $font-primary;
     margin: 15px;
     text-decoration: none;
     p {
       &:hover {
-        text-shadow: 2px 2px 8px $secondary-2;
+        font-size: xx-large;
         font-weight: bold;
       }
     }
   }
 }
 
-.navbar {
-  background-image: linear-gradient(to bottom, $primary, rgb(43, 43, 43));
-  position: fixed;
+.info-btn {
+  background-color: $secondary-1;
+  font-weight: bolder;
+  font: $h3-font;
+  color: white;
+  border-radius: 25px;
+  box-shadow: 3px 0px 10px black;
+  padding: 10px;
+  margin: 0 0 50px 0;
+  height: 50px;
+  width: 175px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  p {
+    display: inline;
+    margin: 10px;
+  }
+  &:hover {
+    background-color: $font-primary;
+    color: $font-secondary;
+    box-shadow: 3px 0px 10px $secondary-1;
+    cursor: pointer;
+    p {
+      display: none;
+    }
+    &::after {
+      content: "Click me";
+    }
+  }
+}
+
+.more-info-btn {
+  @extend .info-btn;
   display: flex;
+}
+
+.hide-info-btn {
+  @extend .info-btn;
+  display: none;
+}
+
+.more-info {
+  display: none;
   width: 100%;
-  min-height: 50px;
-  padding: 0;
-  top: 0;
-  z-index: 50;
-  #navlist {
-    padding: 0px;
-    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  p {
     font: $h3-font;
-    font-size: 50%;
-    flex-wrap: nowrap;
-    display: flex;
-    position: relative;
-    justify-content: left;
-    #navItem {
-      padding: 10px;
-      p {
-        font: $h3-font;
-        color: $font-primary;
-      }
-      &:hover {
+    font-weight: bolder;
+    margin: 10px;
+  }
+  #info-table {
+    margin: 20px;
+    padding: 0;
+    #info-row {
+      background-color: white;
+      border-style: solid;
+      border-width: 3px;
+      border-left-width: 10px;
+      border-right-width: 10px;
+      border-color: $secondary-1;
+      border-radius: 25px;
+      box-shadow: 2px 2px 8px black;
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      padding: 20px;
+      align-items: center;
+      #info-row-header {
+        @media screen and (max-width: 648px){
+          width: 50%;
+        }
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
         p {
-          -webkit-filter: invert(100%) !important;
-          filter: none;
-          cursor: pointer;
+          font: $h3-font;
+          font-weight: bolder;
+          margin: 10px;
         }
       }
-      a {
-        text-decoration: none;
+      #info-row-content {
+        width: 75%;
+        height: 25%;
+        list-style-type: square;
+        li {
+          font: $h4-font;
+          margin: 10px;
+        }
       }
     }
+  }
+}
 
+.active {
+  background-color: #717171 !important;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  &:hover {
+    background-color: #717171;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.navbar {
+  #nav-btn {
+    font-size: xx-large;
+    color: black;
+    font-size: xx-large;
+    margin: 0 25px 0 25px;
+    user-select: none;
+    padding: 50px;
+    &:hover {
+      color: white;
+      text-shadow: 2px 2px 8px black;
+      cursor: pointer;
+    }
+    i {
+      font-size: xx-large;
+      color: rgb(41, 41, 41);
+      text-shadow: 4px 2px 4px lightgray;
+    }
+  }
+}
+
+.header {
+  font: $h1-font;
+  color: rgba(10, 59, 82, 0.73);;
+  font-weight: bolder;
+  text-align: center;
+  padding: 50px 50px 150px 50px;
+  font-size: 40px;
+  background-image:
+    linear-gradient(to top, $secondary-2, white);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%);
+  p {
+    font: $h4-font;
   }
 }
 
 .section {
-  display: flex;
   align-items: center;
-  height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
   position: relative;
   justify-content: center;
-  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
   img {
     height: 200px;
     width: 200px;
   }
   #summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     #title {
       margin: 50px;
       align-content: center;
@@ -214,16 +392,75 @@ p {
         font: $h2-font;
       }
     }
-    #details {
-      @media screen and (max-width: 1024px) {
-        padding: 10px;
-        margin: 10px;
+    .details-slide {
+      display: none;
+      opacity: 1;
+      flex-direction: column;
+      align-items: center;
+      i {
+        font-size: 50px;
       }
-      padding: 10px;
-      margin: 50px;
-      p {
-        color: $font-primary;
-        font: $h3-font;
+      #details {
+        @media screen and (max-width: 1620px) {
+          flex-direction: column;
+          padding: 10px;
+          margin: 10px;
+        } 
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        margin: 0 25px 0 25px;
+        padding: 50px;
+        transition: 0.5s ease-in-out;
+        img {
+          height: fit-content;
+          width: auto;
+        }
+        p {
+          color: $font-primary;
+          font: $h3-font;
+        }
+        #job-header {
+          display: inline;
+          flex-direction: column;
+          align-items: flex-end;
+          #work-info {
+            display: flex;
+            #company-name {
+              font: $h2-font;
+              color: $font-simple;
+            }
+            #job-title {
+              font: $h1-font;
+              padding: 30px;
+              font-weight: bolder;
+              color: $font-secondary;
+              text-align: center;
+            }
+          }
+        }
+        #job-tag {
+          margin: 20px;
+          p {
+            font: $h4-font;
+            font-weight: bolder;
+            color: black; 
+          }
+        }
+        #skills {
+          list-style-type: none;
+          li {
+            display: flex;
+            margin-bottom: 10px;
+            color: black; 
+            p {
+              color: rgb(80, 80, 80);
+              font: $h4-font;
+              font-weight: bold;
+              margin-left: 20px;
+            }
+          }
+        }
       }
     }
     #profile-pic-container {
