@@ -100,10 +100,12 @@ p {
 
 #contact {
   @extend .content-template;
-  p {
+  text-align: center;
+  #contact-tag {
     font: $h1-font;
-    font-size: 300%;
-    color: white;
+    margin: 40px;
+    font-size: 250%;
+    color: #fff564;
   }
   #bg {
     .section {
@@ -112,27 +114,37 @@ p {
     @extend .bg-template;
     background-color: black;
   }
+  #license {
+    font: $h4-font;
+    color: gray;
+  }
 }
 
-.button1 {
-  font: $h3-font;
-  font-size: 25px;
-  width: auto;
-  height: auto;
-  display: inline-block;
-  padding:0.35em 1.2em;
-  border:0.05em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  color:#FFFFFF;
-  text-align:center;
-  transition: all 0.2s;
-  &:hover {
-    color:#000000;
-    background-color:#FFFFFF;
-    cursor: pointer;
+.contact-info {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #phone-number {
+    font: $h4-font;
+    color: white;
+  }
+  #email-address {
+    font: $h4-font;
+    color: white;
+  }
+}
+
+.icon-list {
+  margin: 20px;
+  #icon {
+    font-size: 50px;
+    color: white;
+    margin: 10px;
+    &:hover {
+      cursor: pointer;
+      text-shadow: 2px 2px 8px $secondary-2;
+    }
   }
 }
 
@@ -188,7 +200,7 @@ p {
   }
 }
 
-.info-btn {
+.button {
   background-color: $secondary-1;
   font-weight: bolder;
   font: $h3-font;
@@ -220,13 +232,21 @@ p {
   }
 }
 
+.resume-btn {
+  @extend .button;
+  width: 300px;
+  p {
+    font: $h3-font;
+  }
+}
+
 .more-info-btn {
-  @extend .info-btn;
+  @extend .button;
   display: flex;
 }
 
 .hide-info-btn {
-  @extend .info-btn;
+  @extend .button;
   display: none;
 }
 
@@ -505,20 +525,6 @@ p {
       a {
         text-decoration: none;
       }
-    }
-  }
-  
-  .content {
-    background-color: $secondary-1;
-    height: 20px;
-    margin: 15px;
-    position: relative;
-    border: thin black;
-    box-shadow: 10px 5px 5px black;
-    opacity: 65%;
-    p {
-      color: $font-primary;
-      opacity: 100%;
     }
   }
 }
