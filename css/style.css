@@ -6,8 +6,21 @@
   font-family: "Code Light";
   src: url("../fonts/code_light-webfont.woff"); }
 
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("../fonts/OpenSans-Light.ttf"); }
+
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
 
 p {
   margin: auto; }
@@ -32,20 +45,16 @@ p {
   position: relative; }
 
 #about {
-  height: -webkit-fill-available;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%); }
   #about #title {
-    width: 786px; }
-    @media screen and (max-width: 1024px) {
-      #about #title {
-        width: auto; } }
+    width: 100%; }
   #about #bg {
     background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
     #about #bg .section {
-      display: flex; }
+      padding: 200px; }
       @media screen and (max-width: 1024px) {
         #about #bg .section {
-          display: block; } }
+          padding: 100px; } }
 
 #recent-work #bg {
   background-color: white; }
@@ -59,14 +68,15 @@ p {
   #portfolio #bg {
     background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../images/iphone-notebook-pen-working-34578.jpg"); }
 
-#contact {
-  height: 400px; }
-  #contact p {
-    font: bold 75px "Code Bold";
-    font-size: 300%;
-    color: white; }
-  #contact #bg {
-    background-color: black; }
+#contact p {
+  font: bold 75px "Code Bold";
+  font-size: 300%;
+  color: white; }
+
+#contact #bg {
+  background-color: black; }
+  #contact #bg .section {
+    padding: 10px 0 50px 0; }
 
 .button1 {
   font: 25px "Code Light";
@@ -113,7 +123,8 @@ p {
   z-index: 49;
   opacity: 0;
   padding: 0 10px 0 10px;
-  transition: 0.2s ease-in-out; }
+  transition: 0.2s ease-in-out;
+  text-align: end; }
   @media screen and (max-width: 1024px) {
     #menu-window {
       width: 100%;
@@ -127,33 +138,65 @@ p {
     margin: 15px;
     text-decoration: none; }
     #menu-window #menu-item p:hover {
-      text-shadow: 2px 2px 8px rgba(255, 241, 112, 0.73);
+      font-size: xx-large;
       font-weight: bold; }
 
 #expand-details-btn {
   background-color: rgba(22, 171, 240, 0.73);
   font-weight: bolder;
+  font: 25px "Code Light";
   color: white;
   border-radius: 25px;
   box-shadow: 3px 0px 10px black;
   padding: 10px;
+  margin: 0 0 50px 0;
   height: 50px;
   width: 175px;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  transition: 0.2s ease-in-out; }
   #expand-details-btn p {
     display: inline;
     margin: 10px; }
   #expand-details-btn:hover {
     background-color: white;
-    color: rgba(2, 8, 48, 0.52);
+    color: black;
     box-shadow: 3px 0px 10px rgba(22, 171, 240, 0.73);
     cursor: pointer; }
     #expand-details-btn:hover p {
       display: none; }
     #expand-details-btn:hover::after {
       content: "Click me"; }
+
+.expanded-details {
+  display: none;
+  width: 100%;
+  justify-content: center; }
+  .expanded-details p {
+    font: 25px "Code Light";
+    margin: 20px; }
+  .expanded-details #details-table {
+    margin: 20px;
+    padding: 0; }
+    .expanded-details #details-table #details-row {
+      background-color: rgba(22, 171, 240, 0.73);
+      border-radius: 25px;
+      box-shadow: 2px 2px 8px black;
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      padding: 20px;
+      align-items: center; }
+      .expanded-details #details-table #details-row #details-row-header {
+        font: 25px "Code Light";
+        margin: 10px; }
+      .expanded-details #details-table #details-row #details-row-content {
+        font: 25px "Open Sans Light";
+        margin: 10px; }
+
+.active {
+  background-color: #717171 !important; }
 
 .dot {
   cursor: pointer;
@@ -167,13 +210,61 @@ p {
   .dot:hover {
     background-color: #717171; }
 
+@-webkit-keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+.navbar #nav-btn {
+  font-size: xx-large;
+  color: black;
+  font-size: xx-large;
+  margin: 0 25px 0 25px;
+  user-select: none;
+  padding: 50px; }
+  .navbar #nav-btn:hover {
+    color: white;
+    text-shadow: 2px 2px 8px black;
+    cursor: pointer; }
+  .navbar #nav-btn i {
+    font-size: xx-large;
+    color: #292929;
+    text-shadow: 4px 2px 4px lightgray; }
+
+.header {
+  font: bold 75px "Code Bold";
+  color: rgba(10, 59, 82, 0.73);
+  font-weight: bolder;
+  text-align: center;
+  padding: 50px 50px 150px 50px;
+  font-size: 40px;
+  background-image: linear-gradient(to top, rgba(255, 241, 112, 0.73), white);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%); }
+  .header p {
+    font: 25px "Open Sans Light"; }
+
 .section {
   align-items: center;
-  height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
-  padding: 100px;
   position: relative;
-  justify-content: center; }
+  justify-content: center;
+  display: flex;
+  flex-direction: column; }
   .section img {
     height: 200px;
     width: 200px; }
@@ -195,67 +286,63 @@ p {
       .section #summary #name p {
         color: white;
         font: 60px "Code Bold"; }
-    .section #summary #details-slide {
-      display: flex;
+    .section #summary .details-slide {
+      display: none;
+      opacity: 1;
       flex-direction: column;
       align-items: center; }
-      .section #summary #details-slide #nav-btn {
-        font-size: xx-large;
-        color: black;
-        margin: 0 25px 0 25px; }
-        .section #summary #details-slide #nav-btn:hover {
-          color: white; }
-      .section #summary #details-slide #details {
+      .section #summary .details-slide i {
+        font-size: 50px; }
+      .section #summary .details-slide #details {
+        align-items: center;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin: 0 25px 0 25px;
-        padding: 20px;
+        padding: 50px;
         transition: 0.5s ease-in-out; }
-        @media screen and (max-width: 1024px) {
-          .section #summary #details-slide #details {
+        @media screen and (max-width: 1620px) {
+          .section #summary .details-slide #details {
+            flex-direction: column;
             padding: 10px;
             margin: 10px; } }
-        .section #summary #details-slide #details #job-header {
-          display: flex;
+        .section #summary .details-slide #details img {
+          height: fit-content;
+          width: auto; }
+        .section #summary .details-slide #details p {
+          color: white;
+          font: 25px "Code Light"; }
+        .section #summary .details-slide #details #job-header {
+          display: inline;
+          flex-direction: column;
           align-items: flex-end; }
-          .section #summary #details-slide #details #job-header img {
-            height: auto;
-            width: 50%; }
-          .section #summary #details-slide #details #job-header #work-info {
-            display: grid; }
-            .section #summary #details-slide #details #job-header #work-info #company-name {
+          .section #summary .details-slide #details #job-header #work-info {
+            display: flex; }
+            .section #summary .details-slide #details #job-header #work-info #company-name {
               font: 60px "Code Bold";
-              text-shadow: 3px 0px 10px black; }
-            .section #summary #details-slide #details #job-header #work-info #job-title {
-              font: 25px "Code Light";
+              color: rgba(49, 49, 49, 0.52); }
+            .section #summary .details-slide #details #job-header #work-info #job-title {
+              font: bold 75px "Code Bold";
+              padding: 30px;
               font-weight: bolder;
-              color: blue;
-              text-shadow: 3px 0px 10px black; }
-        .section #summary #details-slide #details #job-tag {
+              color: black;
+              text-align: center; }
+        .section #summary .details-slide #details #job-tag {
           margin: 20px; }
-          .section #summary #details-slide #details #job-tag p {
-            font: bold 75px "Code Bold";
-            font-size: 150%;
+          .section #summary .details-slide #details #job-tag p {
+            font: 25px "Open Sans Light";
+            font-weight: bolder;
             color: black; }
-        .section #summary #details-slide #details #skills {
+        .section #summary .details-slide #details #skills {
           list-style-type: none; }
-          .section #summary #details-slide #details #skills li {
+          .section #summary .details-slide #details #skills li {
             display: flex;
             margin-bottom: 10px;
             color: black; }
-            .section #summary #details-slide #details #skills li p {
+            .section #summary .details-slide #details #skills li p {
               color: #505050;
-              font: 25px "Code Light";
-              font-weight: bolder;
+              font: 25px "Open Sans Light";
+              font-weight: bold;
               margin-left: 20px; }
-          .section #summary #details-slide #details #skills i {
-            font-size: xx-large;
-            color: #292929;
-            text-shadow: 4px 2px 4px lightgray; }
-        .section #summary #details-slide #details p {
-          color: white;
-          font: 25px "Code Light";
-          margin-left: 20px; }
     .section #summary #profile-pic-container {
       display: flex;
       justify-content: center; }

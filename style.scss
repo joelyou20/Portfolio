@@ -4,6 +4,16 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 p {
@@ -35,7 +45,6 @@ p {
 
 #about {
   @extend .content-template;
-  height: -webkit-fill-available;
   clip-path: polygon(
     0 0, /* left top */
     100% 0, /* right top */ 
@@ -43,10 +52,7 @@ p {
     0 90% /* left bottom */
   );
   #title {
-    @media screen and (max-width: 1024px){
-      width: auto;
-    }
-    width: 786px;
+    width: 100%;
   }
   #bg {
     @extend .bg-template;
@@ -54,10 +60,10 @@ p {
       linear-gradient(to bottom, $primary, $secondary-1),
       url($about-img);
     .section {
+      padding: 200px;
       @media screen and (max-width: 1024px){
-        display: block;
+        padding: 100px;
       }
-      display: flex;
     }
   }
 }
@@ -68,6 +74,7 @@ p {
     @extend .bg-template;
     background-color: white;
     .section {
+      // height: 1024px;
       #summary {
         #title {
           margin: 0px;
@@ -93,13 +100,15 @@ p {
 
 #contact {
   @extend .content-template;
-  height: 400px;
   p {
     font: $h1-font;
     font-size: 300%;
     color: white;
   }
   #bg {
+    .section {
+      padding: 10px 0 50px 0;
+    }
     @extend .bg-template;
     background-color: black;
   }
@@ -156,6 +165,7 @@ p {
   opacity: 0;
   padding: 0 10px 0 10px;
   transition: 0.2s ease-in-out;
+  text-align: end;
   @media screen and (max-width: 1024px){
     width: 100%;
     display: flex;
@@ -170,7 +180,7 @@ p {
     text-decoration: none;
     p {
       &:hover {
-        text-shadow: 2px 2px 8px $secondary-2;
+        font-size: xx-large;
         font-weight: bold;
       }
     }
@@ -180,15 +190,18 @@ p {
 #expand-details-btn {
   background-color: $secondary-1;
   font-weight: bolder;
+  font: $h3-font;
   color: white;
   border-radius: 25px;
   box-shadow: 3px 0px 10px black;
   padding: 10px;
+  margin: 0 0 50px 0;
   height: 50px;
   width: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s ease-in-out;
   p {
     display: inline;
     margin: 10px;
@@ -207,6 +220,42 @@ p {
   }
 }
 
+.expanded-details {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  p {
+    font: $h3-font;
+    margin: 20px;
+  }
+  #details-table {
+    margin: 20px;
+    padding: 0;
+    #details-row {
+      background-color: $secondary-1;
+      border-radius: 25px;
+      box-shadow: 2px 2px 8px black;
+      display: flex;
+      flex-direction: row;
+      margin: 20px;
+      padding: 20px;
+      align-items: center;
+      #details-row-header {
+        font: $h3-font;
+        margin: 10px;
+      }
+      #details-row-content {
+        font: $h4-font;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+.active {
+  background-color: #717171 !important;
+}
+
 .dot {
   cursor: pointer;
   height: 15px;
@@ -221,13 +270,68 @@ p {
   }
 }
 
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.navbar {
+  #nav-btn {
+    font-size: xx-large;
+    color: black;
+    font-size: xx-large;
+    margin: 0 25px 0 25px;
+    user-select: none;
+    padding: 50px;
+    &:hover {
+      color: white;
+      text-shadow: 2px 2px 8px black;
+      cursor: pointer;
+    }
+    i {
+      font-size: xx-large;
+      color: rgb(41, 41, 41);
+      text-shadow: 4px 2px 4px lightgray;
+    }
+  }
+}
+
+.header {
+  font: $h1-font;
+  color: rgba(10, 59, 82, 0.73);;
+  font-weight: bolder;
+  text-align: center;
+  padding: 50px 50px 150px 50px;
+  font-size: 40px;
+  background-image:
+    linear-gradient(to top, $secondary-2, white);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%);
+  p {
+    font: $h4-font;
+  }
+}
+
 .section {
   align-items: center;
-  height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
-  padding: 100px;
   position: relative;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
   img {
     height: 200px;
     width: 200px;
@@ -254,54 +358,58 @@ p {
         font: $h2-font;
       }
     }
-    #details-slide {
-      display: flex;
+    .details-slide {
+      display: none;
+      opacity: 1;
       flex-direction: column;
       align-items: center;
-      #nav-btn {
-        font-size: xx-large;
-        color: black;
-        margin: 0 25px 0 25px;
-        &:hover {
-          color: white;
-        }
+      i {
+        font-size: 50px;
       }
       #details {
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1620px) {
+          flex-direction: column;
           padding: 10px;
           margin: 10px;
         } 
+        align-items: center;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin: 0 25px 0 25px;
-        padding: 20px;
+        padding: 50px;
         transition: 0.5s ease-in-out;
+        img {
+          height: fit-content;
+          width: auto;
+        }
+        p {
+          color: $font-primary;
+          font: $h3-font;
+        }
         #job-header {
-          display: flex;
+          display: inline;
+          flex-direction: column;
           align-items: flex-end;
-          img {
-            height: auto;
-            width: 50%;
-          }
           #work-info {
-            display: grid;
+            display: flex;
             #company-name {
               font: $h2-font;
-              text-shadow: 3px 0px 10px black;
+              color: $font-simple;
             }
             #job-title {
-              font: $h3-font;
+              font: $h1-font;
+              padding: 30px;
               font-weight: bolder;
-              color: blue;
-              text-shadow: 3px 0px 10px black;
+              color: $font-secondary;
+              text-align: center;
             }
           }
         }
         #job-tag {
           margin: 20px;
           p {
-            font: $h1-font;
-            font-size: 150%;
+            font: $h4-font;
+            font-weight: bolder;
             color: black; 
           }
         }
@@ -313,21 +421,11 @@ p {
             color: black; 
             p {
               color: rgb(80, 80, 80);
-              font: $h3-font;
-              font-weight: bolder;
+              font: $h4-font;
+              font-weight: bold;
               margin-left: 20px;
             }
           }
-          i {
-            font-size: xx-large;
-            color: rgb(41, 41, 41);
-            text-shadow: 4px 2px 4px lightgray;
-          }
-        }
-        p {
-          color: $font-primary;
-          font: $h3-font;
-          margin-left: 20px;
         }
       }
     }

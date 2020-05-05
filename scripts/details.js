@@ -1,23 +1,11 @@
-var detailsWindow;
-
-$(document).ready(function() {
-  detailsWindow = document.getElementById("details");
-});
-
-function showDetails() {
-  var height = detailsWindow.style.height;
-  var width = detailsWindow.style.width;
-  var id = setInterval(frame, 5);
-  var value = 0;
-  function frame() {
-    if (value == 500) {
-      clearInterval(id);
-    } else {
-      value++; 
-      var newHeight = height + value;
-      var newWidth = width + value;
-      detailsWindow.style.height = newHeight + "px"; 
-      detailsWindow.style.width = newWidth + "px"; 
+function showDetails(n) {
+  expandedDetails = document.getElementsByClassName("expanded-details");
+  if(expandedDetails[n] != null) {
+    if (expandedDetails[n].style.display == "none" || expandedDetails[n].style.display == "") {
+      expandedDetails[n].style.display = "flex";
+    }
+    else if (expandedDetails[n].style.display === "flex") {
+      expandedDetails[n].style.display = "none";
     }
   }
 }
