@@ -68,35 +68,42 @@ p {
   #portfolio #bg {
     background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../images/iphone-notebook-pen-working-34578.jpg"); }
 
-#contact p {
-  font: bold 75px "Code Bold";
-  font-size: 300%;
-  color: white; }
+#contact {
+  text-align: center; }
+  #contact #contact-tag {
+    font: bold 75px "Code Bold";
+    margin: 40px;
+    font-size: 250%;
+    color: #fff564; }
+  #contact #bg {
+    background-color: black; }
+    #contact #bg .section {
+      padding: 10px 0 50px 0; }
+  #contact #license {
+    font: 25px "Open Sans Light";
+    color: gray; }
 
-#contact #bg {
-  background-color: black; }
-  #contact #bg .section {
-    padding: 10px 0 50px 0; }
+.contact-info {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .contact-info #phone-number {
+    font: 25px "Open Sans Light";
+    color: white; }
+  .contact-info #email-address {
+    font: 25px "Open Sans Light";
+    color: white; }
 
-.button1 {
-  font: 25px "Code Light";
-  font-size: 25px;
-  width: auto;
-  height: auto;
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.05em solid #FFFFFF;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: #FFFFFF;
-  text-align: center;
-  transition: all 0.2s; }
-  .button1:hover {
-    color: #000000;
-    background-color: #FFFFFF;
-    cursor: pointer; }
+.icon-list {
+  margin: 20px; }
+  .icon-list #icon {
+    font-size: 50px;
+    color: white;
+    margin: 10px; }
+    .icon-list #icon:hover {
+      cursor: pointer;
+      text-shadow: 2px 2px 8px rgba(255, 241, 112, 0.73); }
 
 #menu-btn {
   color: white;
@@ -129,19 +136,40 @@ p {
     #menu-window {
       width: 100%;
       display: flex; } }
-  #menu-window #menu-item {
+  #menu-window .menu-item {
     font: 25px "Code Light";
     font-size: x-large;
     font-weight: bold;
     text-shadow: 1px 1px 4px black;
     color: white;
     margin: 15px;
+    display: none;
     text-decoration: none; }
-    #menu-window #menu-item p:hover {
+    #menu-window .menu-item p:hover {
       font-size: xx-large;
       font-weight: bold; }
 
-.info-btn, .more-info-btn, .hide-info-btn {
+.button1 {
+  font: 25px "Code Light";
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.05em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s; }
+  .button1:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer; }
+
+.button2, .more-info-btn, .hide-info-btn, .header #resume-btn-container .resume-btn {
   background-color: rgba(22, 171, 240, 0.73);
   font-weight: bolder;
   font: 25px "Code Light";
@@ -151,21 +179,21 @@ p {
   padding: 10px;
   margin: 0 0 50px 0;
   height: 50px;
-  width: 175px;
+  width: 200px;
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out; }
-  .info-btn p, .more-info-btn p, .hide-info-btn p {
+  .button2 p, .more-info-btn p, .hide-info-btn p, .header #resume-btn-container .resume-btn p {
     display: inline;
     margin: 10px; }
-  .info-btn:hover, .more-info-btn:hover, .hide-info-btn:hover {
+  .button2:hover, .more-info-btn:hover, .hide-info-btn:hover, .header #resume-btn-container .resume-btn:hover {
     background-color: white;
     color: black;
     box-shadow: 3px 0px 10px rgba(22, 171, 240, 0.73);
     cursor: pointer; }
-    .info-btn:hover p, .more-info-btn:hover p, .hide-info-btn:hover p {
+    .button2:hover p, .more-info-btn:hover p, .hide-info-btn:hover p, .header #resume-btn-container .resume-btn:hover p {
       display: none; }
-    .info-btn:hover::after, .more-info-btn:hover::after, .hide-info-btn:hover::after {
+    .button2:hover::after, .more-info-btn:hover::after, .hide-info-btn:hover::after, .header #resume-btn-container .resume-btn:hover::after {
       content: "Click me"; }
 
 .more-info-btn {
@@ -280,10 +308,28 @@ p {
   text-align: center;
   padding: 50px 50px 150px 50px;
   font-size: 40px;
+  display: flex;
+  flex-direction: column;
   background-image: linear-gradient(to top, rgba(255, 241, 112, 0.73), white);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%); }
   .header p {
     font: 25px "Open Sans Light"; }
+  .header #resume-btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    .header #resume-btn-container p {
+      margin: 50px 5px 50px 50px;
+      font: 25px "Open Sans Light"; }
+    .header #resume-btn-container a {
+      text-decoration: none; }
+    .header #resume-btn-container .resume-btn {
+      display: flex;
+      margin: 50px 50px 50px 5px;
+      padding: 10px; }
+      .header #resume-btn-container .resume-btn p {
+        font: 25px "Code Light"; }
 
 .section {
   align-items: center;
@@ -403,14 +449,3 @@ p {
       display: flex; }
       .section #summary #btnContainer a {
         text-decoration: none; }
-  .section .content {
-    background-color: rgba(22, 171, 240, 0.73);
-    height: 20px;
-    margin: 15px;
-    position: relative;
-    border: thin black;
-    box-shadow: 10px 5px 5px black;
-    opacity: 65%; }
-    .section .content p {
-      color: white;
-      opacity: 100%; }
