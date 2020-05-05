@@ -141,7 +141,7 @@ p {
       font-size: xx-large;
       font-weight: bold; }
 
-#expand-details-btn {
+.info-btn, .more-info-btn, .hide-info-btn {
   background-color: rgba(22, 171, 240, 0.73);
   font-weight: bolder;
   font: 25px "Code Light";
@@ -152,35 +152,48 @@ p {
   margin: 0 0 50px 0;
   height: 50px;
   width: 175px;
-  display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out; }
-  #expand-details-btn p {
+  .info-btn p, .more-info-btn p, .hide-info-btn p {
     display: inline;
     margin: 10px; }
-  #expand-details-btn:hover {
+  .info-btn:hover, .more-info-btn:hover, .hide-info-btn:hover {
     background-color: white;
     color: black;
     box-shadow: 3px 0px 10px rgba(22, 171, 240, 0.73);
     cursor: pointer; }
-    #expand-details-btn:hover p {
+    .info-btn:hover p, .more-info-btn:hover p, .hide-info-btn:hover p {
       display: none; }
-    #expand-details-btn:hover::after {
+    .info-btn:hover::after, .more-info-btn:hover::after, .hide-info-btn:hover::after {
       content: "Click me"; }
 
-.expanded-details {
+.more-info-btn {
+  display: flex; }
+
+.hide-info-btn {
+  display: none; }
+
+.more-info {
   display: none;
   width: 100%;
-  justify-content: center; }
-  .expanded-details p {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+  .more-info p {
     font: 25px "Code Light";
-    margin: 20px; }
-  .expanded-details #details-table {
+    font-weight: bolder;
+    margin: 10px; }
+  .more-info #info-table {
     margin: 20px;
     padding: 0; }
-    .expanded-details #details-table #details-row {
-      background-color: rgba(22, 171, 240, 0.73);
+    .more-info #info-table #info-row {
+      background-color: white;
+      border-style: solid;
+      border-width: 3px;
+      border-left-width: 10px;
+      border-right-width: 10px;
+      border-color: rgba(22, 171, 240, 0.73);
       border-radius: 25px;
       box-shadow: 2px 2px 8px black;
       display: flex;
@@ -188,12 +201,27 @@ p {
       margin: 20px;
       padding: 20px;
       align-items: center; }
-      .expanded-details #details-table #details-row #details-row-header {
-        font: 25px "Code Light";
-        margin: 10px; }
-      .expanded-details #details-table #details-row #details-row-content {
-        font: 25px "Open Sans Light";
-        margin: 10px; }
+      .more-info #info-table #info-row #info-row-header {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0; }
+        @media screen and (max-width: 648px) {
+          .more-info #info-table #info-row #info-row-header {
+            width: 50%; } }
+        .more-info #info-table #info-row #info-row-header p {
+          font: 25px "Code Light";
+          font-weight: bolder;
+          margin: 10px; }
+      .more-info #info-table #info-row #info-row-content {
+        width: 75%;
+        height: 25%;
+        list-style-type: square; }
+        .more-info #info-table #info-row #info-row-content li {
+          font: 25px "Open Sans Light";
+          margin: 10px; }
 
 .active {
   background-color: #717171 !important; }
