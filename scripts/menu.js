@@ -17,10 +17,18 @@ $(document).ready(function() {
 function openMenu() {
     menuBtn.style.opacity = 0;
     menuWindow.style.opacity = 1;
-
+    setMenuItemDisplay("block");
 }
 
 function closeMenu() {
     menuBtn.style.opacity = 1;
     menuWindow.style.opacity = 0;
+    setMenuItemDisplay("none");
+}
+
+function setMenuItemDisplay(display) {
+    menuItems = document.getElementsByClassName("menu-item");
+    for (i = 0; i < menuItems.length; i++) {
+        menuItems[i].style.display = display;
+    }
 }
