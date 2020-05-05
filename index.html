@@ -1,296 +1,293 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scripts/info.js"></script>
-  <script language="JavaScript" type="text/javascript" src="./scripts/workSlide.js"></script>
-  <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
-  <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>J. Cribby Portfolio</title>
-</head>
-<body>
-  <div id="menu-btn" onmouseover="openMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div id="menu-window"  onmouseleave="closeMenu()">
-    <a class="menu-item" href="#about"><p>ABOUT</p></a>
-    <a class="menu-item" href="#recent-work"><p>RECENT WORK</p></a>
-    <a class="menu-item" href="#portfolio"><p>PORTFOLIO</p></a>
-    <a class="menu-item" href="#contact"><p>CONTACT</p></a>
-  </div>
-  <div id="about">
-    <div id="bg">
-      <div class="section">
-        <div id="summary">
-          <div id="title">
-            <p>Hi, I'm <span id="highlight">Joel Cribby</span> and I have a <span id="underline">passion</span> for Software</p>
-          </div>
-          <a id="profile-pic-container" href="https://github.com/joelyou20/">
-            <div id="profile-pic">
-              <img id="jc-pic" src="./images/Joel_Cribby_Photo.jpg" />
-              <img id="git-pic" src="./images/GitHub-Mark-120px-plus.jpg" />
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/info.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/workSlide.js"></script>
+    <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
+    <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>J. Cribby Portfolio</title>
+  </head>
+  <body>
+    <div id="menu-btn" onmouseover="openMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div id="menu-window"  onmouseleave="closeMenu()">
+      <a class="menu-item" href="#about"><p>ABOUT</p></a>
+      <a class="menu-item" href="#recent-work"><p>RECENT WORK</p></a>
+      <a class="menu-item" href="#portfolio"><p>PORTFOLIO</p></a>
+      <a class="menu-item" href="#contact"><p>CONTACT</p></a>
+    </div>
+    <div id="about">
+      <div id="bg">
+        <div class="section">
+          <div id="summary">
+            <div id="title">
+              <p>Hi, I'm <span id="highlight">Joel Cribby</span> and I have a <span id="underline">passion</span> for Software</p>
             </div>
-          </a>
-          <div id="btnContainer">
-            <a class="button1" href="#recent-work"><p>Check out my Work</p></a>
+            <a id="profile-pic-container" href="https://github.com/joelyou20/">
+              <div id="profile-pic">
+                <img id="jc-pic" src="./images/Joel_Cribby_Photo.jpg" />
+                <img id="git-pic" src="./images/GitHub-Mark-120px-plus.jpg" />
+              </div>
+            </a>
+            <div id="btnContainer">
+              <a class="button1" href="#recent-work"><p>Check out my Work</p></a>
+            </div>
           </div>
         </div>
       </div>
-      <!-- <div><i class="fas fa-chevron-down"></i>
-        <i id="scrollDownButton" class="fas fa-chevron-down"></i>
-      </div> -->
     </div>
-  </div>
-  <div id="recent-work">
-    <div class="header">
-      Work history
-      <div>
-        <p>
-          My love for designing software and working with people has lead me to 
-          some great opportunities. Below are a few examples of my professional work.
-        </p>
+    <div id="recent-work">
+      <div class="header">
+        Work history
+        <div>
+          <p>
+            My love for designing software and working with people has lead me to 
+            some great opportunities. Below are a few examples of my professional work.
+          </p>
+        </div>
       </div>
-    </div>
-    <div id="bg">
-      <div class="section">
-        <div id="summary">
-          <div class="details-slide fade">
-            <div id="details">
-              <img src="./images/logosm.png">
-              <div id="job-header">
-                <div id="work-info">
-                  <p id="job-title">
-                    Software Developer
-                  </p>
+      <div id="bg">
+        <div class="section">
+          <div id="summary">
+            <div class="details-slide fade">
+              <div id="details">
+                <img src="./images/logosm.png">
+                <div id="job-header">
+                  <div id="work-info">
+                    <p id="job-title">
+                      Software Developer
+                    </p>
+                  </div>
+                  <div id="job-tag">
+                    <p>
+                      Operated as Devops Lead for multiple Web Application projects with 
+                      a focus on Gitlab CI and deployments using IIS and Node-js.
+                    </p>
+                  </div>
+                  <ul id="skills">
+                    <li><i class="fab fa-gitlab" style="color: orange;"></i><p>Gitlab was used for project management as well as CI/CD</p></li>
+                    <li><i class="fab fa-windows" style="color: skyblue;"></i><p>Internet Information Services served as the deployment tool</p></li>
+                    <li><i class="fab fa-node-js" style="color: green;"></i><p>Node tools such as NPM were used to manage and publish new versions </p></li>
+                  </ul>
                 </div>
-                <div id="job-tag">
-                  <p>
-                    Operated as Devops Lead for multiple Web Application projects with 
-                    a focus on Gitlab CI and deployments using IIS and Node-js.
-                  </p>
-                </div>
-                <ul id="skills">
-                  <li><i class="fab fa-gitlab" style="color: orange;"></i><p>Gitlab was used for project management as well as CI/CD</p></li>
-                  <li><i class="fab fa-windows" style="color: skyblue;"></i><p>Internet Information Services served as the deployment tool</p></li>
-                  <li><i class="fab fa-node-js" style="color: green;"></i><p>Node tools such as NPM were used to manage and publish new versions </p></li>
+              </div>
+              <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
+              <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
+              <div class="more-info">
+                <p>Here is some more info on what I accomplished while in this position</p>
+                <ul id="info-table">
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Continuous <br>Integration</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Managed all CI pipelines across every project.</li>
+                      <li>Responsible for maintaining the consistency and reliability of all builds and deployments.</li>
+                      <li>Set up and optimized Runners within isolated Linux Servers.</li>
+                      <li>Designed a centralized, modular repo for shared scripts to reduce redundency.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Deployments</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Wrote and provided regular maintenance on deployment scripts.</li>
+                      <li>Set up and tested all new project deployments to multiple environments using Internet Information Services.</li>
+                      <li>Introduced proper versioning for all projects using semantic versioning standards.</li>
+                      <li>Automated publishing of private packages to Verdaccio.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Research</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Researched alternative infrastructures including Micro-Frontends.</li>
+                      <li>Researched and implemented a shared cache server for Runners using a MinIO object storage Docker container.</li>
+                      <li>Researched and demoed Azure Application Insights to executive team.</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
-            <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
-            <div class="more-info">
-              <p>Here is some more info on what I accomplished while in this position</p>
-              <ul id="info-table">
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Continuous <br>Integration</p>
+            <div class="details-slide fade">
+              <div id="details">
+                <img src="./images/logosm.png">
+                <div id="job-header">
+                  <div id="work-info">
+                    <p id="job-title">
+                      Software Developer Intern
+                    </p>
                   </div>
-                  <ul id="info-row-content">
-                    <li>Managed all CI pipelines across every project.</li>
-                    <li>Responsible for maintaining the consistency and reliability of all builds and deployments.</li>
-                    <li>Set up and optimized Runners within isolated Linux Servers.</li>
-                    <li>Designed a centralized, modular repo for shared scripts to reduce redundency.</li>
-                  </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Deployments</p>
+                  <div id="job-tag">
+                    <p>
+                      Worked as a Full-Stack Developer for a Web Application project. 
+                      Tasks included design, research, testing, and feature implementation 
+                      across the entire stack.
+                    </p>
                   </div>
-                  <ul id="info-row-content">
-                    <li>Wrote and provided regular maintenance on deployment scripts.</li>
-                    <li>Set up and tested all new project deployments to multiple environments using Internet Information Services.</li>
-                    <li>Introduced proper versioning for all projects using semantic versioning standards.</li>
-                    <li>Automated publishing of private packages to Verdaccio.</li>
+                  <ul id="skills">
+                    <li><i class="fab fa-microsoft" style="color: deepskyblue;"></i><p>.NET was used as the backend framework for the API layer</p></li>
+                    <li><i class="fab fa-angular" style="color: red;"></i><p>Angular framework was utilised for the frontend of the web application</p></li>
+                    <li><i class="fab fa-html5" style="color: orange;"></i><p>HTML5 and SCSS were used for structuring and presenting the web pages</p></li>
                   </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Research</p>
-                  </div>
-                  <ul id="info-row-content">
-                    <li>Researched alternative infrastructures including Micro-Frontends.</li>
-                    <li>Researched and implemented a shared cache server for Runners using a MinIO object storage Docker container.</li>
-                    <li>Researched and demoed Azure Application Insights to executive team.</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="details-slide fade">
-            <div id="details">
-              <img src="./images/logosm.png">
-              <div id="job-header">
-                <div id="work-info">
-                  <p id="job-title">
-                    Software Developer Intern
-                  </p>
                 </div>
-                <div id="job-tag">
-                  <p>
-                    Worked as a Full-Stack Developer for a Web Application project. 
-                    Tasks included design, research, testing, and feature implementation 
-                    across the entire stack.
-                  </p>
-                </div>
-                <ul id="skills">
-                  <li><i class="fab fa-microsoft" style="color: deepskyblue;"></i><p>.NET was used as the backend framework for the API layer</p></li>
-                  <li><i class="fab fa-angular" style="color: red;"></i><p>Angular framework was utilised for the frontend of the web application</p></li>
-                  <li><i class="fab fa-html5" style="color: orange;"></i><p>HTML5 and SCSS were used for structuring and presenting the web pages</p></li>
+              </div>
+              <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
+              <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
+              <div class="more-info">
+                <p>Here is some more info on what I accomplished while in this position</p>
+                <ul id="info-table">
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Feature <br>Implementation</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Participated in Agile iteration planning to coordinate sprint tasks using SCRUM methodology.</li>
+                      <li>Implemented new features and fixed bugs using a strong knowledge of C#, HTML, and TypeScript.</li>
+                      <li>Worked with Visual Studio for development and SSMS for DB-related tasks</li>
+                      <li>Completed tasks that required a working knowledge of RESTful web service design and Database SQL querying.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Design</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Designed new components and web pages to allow for new features.</li>
+                      <li>Worked with the Business Analyst team to create mockups and wireframes for new components and webpages.</li>
+                      <li>Fixed and refactored existing features to increase readability and user-friendliness.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Testing</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Utilized Postman and Browser Development Tools to debug and fix issues.</li>
+                      <li>Wrote unit tests for both frontend and backend components.</li>
+                      <li>Created automated tests using Selenium.</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
-            <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
-            <div class="more-info">
-              <p>Here is some more info on what I accomplished while in this position</p>
-              <ul id="info-table">
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Feature <br>Implementation</p>
+            <div class="details-slide fade">
+              <div id="details">
+                <img src="./images/aml_menu_logo.png">
+                <div id="job-header">
+                  <div id="work-info">
+                    <p id="job-title">
+                      Software Developer Co-op
+                    </p>
                   </div>
-                  <ul id="info-row-content">
-                    <li>Participated in Agile iteration planning to coordinate sprint tasks using SCRUM methodology.</li>
-                    <li>Implemented new features and fixed bugs using a strong knowledge of C#, HTML, and TypeScript.</li>
-                    <li>Worked with Visual Studio for development and SSMS for DB-related tasks</li>
-                    <li>Completed tasks that required a working knowledge of RESTful web service design and Database SQL querying.</li>
-                  </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Design</p>
+                  <div id="job-tag">
+                    <p>
+                      Sole on-site Developer for WPF based application used to interface 
+                      with oceanographic sensors via Bluetooth and display data using 
+                      Google API.
+                    </p>
                   </div>
-                  <ul id="info-row-content">
-                    <li>Designed new components and web pages to allow for new features.</li>
-                    <li>Worked with the Business Analyst team to create mockups and wireframes for new components and webpages.</li>
-                    <li>Fixed and refactored existing features to increase readability and user-friendliness.</li>
+                  <ul id="skills">
+                    <li><i class="fab fa-wpforms" style="color: purple;"></i><p>WPF, MVVM, C#, and XML functioned as the framework and stack</p></li>
+                    <li><i class="fab fa-bluetooth" style="color: blue;"></i><p>Bluetooth and WiFi connectivity was implemented to easily connect with sensors</p></li>
+                    <li><i class="fab fa-google" style="color: orangered;"></i><p>Google Maps API was used to display data related to oceanographic surveys.</p></li>
                   </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Testing</p>
-                  </div>
-                  <ul id="info-row-content">
-                    <li>Utilized Postman and Browser Development Tools to debug and fix issues.</li>
-                    <li>Wrote unit tests for both frontend and backend components.</li>
-                    <li>Created automated tests using Selenium.</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="details-slide fade">
-            <div id="details">
-              <img src="./images/aml_menu_logo.png">
-              <div id="job-header">
-                <div id="work-info">
-                  <p id="job-title">
-                    Software Developer Co-op
-                  </p>
                 </div>
-                <div id="job-tag">
-                  <p>
-                    Sole on-site Developer for WPF based application used to interface 
-                    with oceanographic sensors via Bluetooth and display data using 
-                    Google API.
-                  </p>
-                </div>
-                <ul id="skills">
-                  <li><i class="fab fa-wpforms" style="color: purple;"></i><p>WPF, MVVM, C#, and XML functioned as the framework and stack</p></li>
-                  <li><i class="fab fa-bluetooth" style="color: blue;"></i><p>Bluetooth and WiFi connectivity was implemented to easily connect with sensors</p></li>
-                  <li><i class="fab fa-google" style="color: orangered;"></i><p>Google Maps API was used to display data related to oceanographic surveys.</p></li>
+              </div>
+              <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
+              <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
+              <div class="more-info">
+                <p>Here is some more info on what I accomplished while in this position</p>
+                <ul id="info-table">
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Feature <br>Implementation</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Implemented Google Maps API features to allow for user interaction with various survey locations.</li>
+                      <li>Enabled WiFi connection between oceanographic sensors and the user application.</li>
+                      <li>Introduced Data Visualization through Telerik API software.</li>
+                      <li>Utilized JIRA for project management and assignment of tasks.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Design</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Worked from Balsamiq mockups and created features to replicate the design of the wireframe</li>
+                      <li>Demoed designs and application updates to the CEO and rest of the company.</li>
+                      <li>Met regularly with the Director of Operations as a software consultant.</li>
+                    </ul>
+                  </li>
+                  <li id="info-row">
+                    <div id="info-row-header">
+                      <p>Research</p>
+                    </div>
+                    <ul id="info-row-content">
+                      <li>Researched Bluetooth as a possible method of connection between a sensor and the user application.</li>
+                      <li>Researched different tools for data visualization and graphing techniques.</li>
+                      <li>Researched various tools for geographic visualization.</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div class="more-info-btn" onclick="showInfo()"><p>More Info</p></div>
-            <div class="hide-info-btn" onclick="showInfo()"><p>Hide Info</p></div>
-            <div class="more-info">
-              <p>Here is some more info on what I accomplished while in this position</p>
-              <ul id="info-table">
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Feature <br>Implementation</p>
-                  </div>
-                  <ul id="info-row-content">
-                    <li>Implemented Google Maps API features to allow for user interaction with various survey locations.</li>
-                    <li>Enabled WiFi connection between oceanographic sensors and the user application.</li>
-                    <li>Introduced Data Visualization through Telerik API software.</li>
-                    <li>Utilized JIRA for project management and assignment of tasks.</li>
-                  </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Design</p>
-                  </div>
-                  <ul id="info-row-content">
-                    <li>Worked from Balsamiq mockups and created features to replicate the design of the wireframe</li>
-                    <li>Demoed designs and application updates to the CEO and rest of the company.</li>
-                    <li>Met regularly with the Director of Operations as a software consultant.</li>
-                  </ul>
-                </li>
-                <li id="info-row">
-                  <div id="info-row-header">
-                    <p>Research</p>
-                  </div>
-                  <ul id="info-row-content">
-                    <li>Researched Bluetooth as a possible method of connection between a sensor and the user application.</li>
-                    <li>Researched different tools for data visualization and graphing techniques.</li>
-                    <li>Researched various tools for geographic visualization.</li>
-                  </ul>
-                </li>
-              </ul>
+            <div class="navbar">
+              <i id="nav-btn" class="fas fa-chevron-left" onclick="plusSlides(-1)"></i>
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+              <i id="nav-btn" class="fas fa-chevron-right" onclick="plusSlides(1)"></i>
             </div>
           </div>
-          <div class="navbar">
-            <i id="nav-btn" class="fas fa-chevron-left" onclick="plusSlides(-1)"></i>
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
-            <i id="nav-btn" class="fas fa-chevron-right" onclick="plusSlides(1)"></i>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="portfolio">
+      <div id="bg">
+        <div class="section">
+          <div id="summary">
+            <div id="title">
+              <p>PORTFOLIO</p>
+            </div>
+            <div id="details">
+              <p>
+                Passionate and dedicated Software Developer with a history in 
+                Web Application Design and DevOps system management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div id="contact">
+      <div id="bg">
+        <div class="section">
+          <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
+          <div id="summary">
+            <div id="title">
+              <p>CONTACT</p>
+            </div>
+            <div id="details">
+              <p>
+                PHONE #: 1-778-677-9799
+                <br>
+                EMAIL: joelcribby@gmail.com
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- <div id="portfolio">
-    <div id="bg">
-      <div class="section">
-        <div id="summary">
-          <div id="title">
-            <p>PORTFOLIO</p>
-          </div>
-          <div id="details">
-            <p>
-              Passionate and dedicated Software Developer with a history in 
-              Web Application Design and DevOps system management.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div id="contact">
-    <div id="bg">
-      <div class="section">
-        <!-- <img src="./images/Joel_Cribby_Photo.jpg" alt=""> -->
-        <div id="summary">
-          <div id="title">
-            <p>CONTACT</p>
-          </div>
-          <div id="details">
-            <p>
-              PHONE #: 1-778-677-9799
-              <br>
-              EMAIL: joelcribby@gmail.com
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
