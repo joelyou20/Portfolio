@@ -179,7 +179,7 @@ p {
   padding: 10px;
   margin: 0 0 50px 0;
   height: 50px;
-  width: 200px;
+  width: 175px;
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out; }
@@ -325,9 +325,14 @@ p {
     .header #resume-btn-container a {
       text-decoration: none; }
     .header #resume-btn-container .resume-btn {
+      width: 300px;
       display: flex;
       margin: 50px 50px 50px 5px;
       padding: 10px; }
+      @media screen and (max-width: 1024px) {
+        .header #resume-btn-container .resume-btn {
+          height: 75px;
+          width: 160px; } }
       .header #resume-btn-container .resume-btn p {
         font: 25px "Code Light"; }
 
