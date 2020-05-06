@@ -229,6 +229,9 @@ p {
       margin: 20px;
       padding: 20px;
       align-items: center; }
+      @media screen and (max-width: 1024px) {
+        .more-info #info-table #info-row {
+          flex-direction: column; } }
       .more-info #info-table #info-row #info-row-header {
         width: 25%;
         height: 100%;
