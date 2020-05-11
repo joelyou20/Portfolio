@@ -2,6 +2,8 @@
 @import "scss/font";
 @import "scss/images";
 
+// < ----------------- Root Elements ----------------- >
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -28,6 +30,66 @@ p {
   }
 }
 
+// < ----------------- Templates ----------------- >
+
+.button1 {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  border: 2px solid white;
+  margin: 10px;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  text-decoration: none !important;
+  text-align:center;
+  transition: all 0.2s;
+  p {
+    font: $h3-font;
+    font-size: 25px;
+    color:white;
+  }
+  &:hover {
+    p {
+      color:black;
+      font-weight: bold;
+    }
+    background-color:white;
+    cursor: pointer;
+  }
+}
+
+.button2 {
+  background-color: $secondary-1;
+  font-weight: bolder;
+  font: $h3-font;
+  color: white;
+  border-radius: 25px;
+  box-shadow: 3px 0px 10px black;
+  margin: 0 0 50px 0;
+  height: 50px;
+  width: 175px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  p {
+    display: inline;
+    margin: 10px;
+  }
+  &:hover {
+    background-color: $font-primary;
+    color: $font-secondary;
+    box-shadow: 3px 0px 10px $secondary-1;
+    cursor: pointer;
+    p {
+      display: none;
+    }
+    &::after {
+      content: "Click me";
+    }
+  }
+}
+
 .bg-template {
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,6 +103,18 @@ p {
 .content-template {
   z-index: 0;
   position: relative;
+}
+
+// < ----------------- Section Roots ----------------- >
+
+.section {
+  align-items: center;
+  height: 100%;
+  width: auto !important;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 #about {
@@ -120,33 +194,7 @@ p {
   }
 }
 
-.contact-info {
-  margin: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  #phone-number {
-    font: $h4-font;
-    color: white;
-  }
-  #email-address {
-    font: $h4-font;
-    color: white;
-  }
-}
-
-.icon-list {
-  margin: 20px;
-  #icon {
-    font-size: 50px;
-    color: white;
-    margin: 10px;
-    &:hover {
-      cursor: pointer;
-      text-shadow: 2px 2px 8px $secondary-2;
-    }
-  }
-}
+// < ----------------- Menu ----------------- >
 
 #menu-btn {
   color: white;
@@ -200,186 +248,70 @@ p {
   }
 }
 
-.button1 {
-  font: $h3-font;
-  font-size: 25px;
-  width: auto;
-  height: auto;
-  display: inline-block;
-  padding:0.35em 1.2em;
-  border:0.05em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  color:#FFFFFF;
-  text-align:center;
-  transition: all 0.2s;
-  &:hover {
-    color:#000000;
-    background-color:#FFFFFF;
-    cursor: pointer;
-  }
-}
+// < ----------------- About ----------------- >
 
-.button2 {
-  background-color: $secondary-1;
-  font-weight: bolder;
-  font: $h3-font;
-  color: white;
-  border-radius: 25px;
-  box-shadow: 3px 0px 10px black;
-  padding: 10px;
-  margin: 0 0 50px 0;
-  height: 50px;
-  width: 175px;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s ease-in-out;
-  p {
-    display: inline;
-    margin: 10px;
-  }
-  &:hover {
-    background-color: $font-primary;
-    color: $font-secondary;
-    box-shadow: 3px 0px 10px $secondary-1;
-    cursor: pointer;
-    p {
-      display: none;
-    }
-    &::after {
-      content: "Click me";
-    }
-  }
-}
-
-.more-info-btn {
-  @extend .button2;
+#profile-pic-container {
   display: flex;
-}
-
-.hide-info-btn {
-  @extend .button2;
-  display: none;
-}
-
-.more-info {
-  display: none;
-  width: 100%;
   justify-content: center;
+  #profile-pic {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    margin: 25px 0 25px 0;
+    &:hover {
+      cursor: pointer;
+      #jc-pic {
+        opacity: 0;
+      }
+      #git-pic {
+        opacity: 1;
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      height: 120px;
+      opacity: 1;
+      transition: .5s ease;
+      border-radius: 50%;
+    }
+    #jc-pic {
+      opacity: 1;
+    }
+    #git-pic {
+      opacity: 0;
+    }
+  }
+}
+
+#summary {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  p {
-    font: $h3-font;
-    font-weight: bolder;
+  #title {
+    margin: 50px;
+    align-content: center;
+    display: flex;
+    p {
+      color: $font-primary;
+      font: $h1-font;
+    }
+  }
+  #name {
     margin: 10px;
-  }
-  #info-table {
-    margin: 20px;
-    padding: 0;
-    #info-row {
-      @media screen and (max-width: 1024px){
-        flex-direction: column;
-      }
-      background-color: white;
-      border-style: solid;
-      border-width: 3px;
-      border-left-width: 10px;
-      border-right-width: 10px;
-      border-color: $secondary-1;
-      border-radius: 25px;
-      box-shadow: 2px 2px 8px black;
-      display: flex;
-      flex-direction: row;
-      margin: 20px;
-      padding: 20px;
-      align-items: center;
-      #info-row-header {
-        @media screen and (max-width: 648px){
-          width: 50%;
-        }
-        width: 25%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        p {
-          font: $h3-font;
-          font-weight: bolder;
-          margin: 10px;
-        }
-      }
-      #info-row-content {
-        width: 75%;
-        height: 25%;
-        list-style-type: square;
-        li {
-          font: $h4-font;
-          margin: 10px;
-        }
-      }
+    align-content: center;
+    display: flex;
+    p {
+      color: $font-primary;
+      font: $h2-font;
     }
   }
 }
+// < ----------------- Recent Work ----------------- >
 
-.active {
-  background-color: #717171 !important;
-}
-
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-  &:hover {
-    background-color: #717171;
-  }
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-.navbar {
-  #nav-btn {
-    font-size: xx-large;
-    color: black;
-    font-size: xx-large;
-    margin: 0 25px 0 25px;
-    user-select: none;
-    padding: 50px;
-    &:hover {
-      color: white;
-      text-shadow: 2px 2px 8px black;
-      cursor: pointer;
-    }
-    i {
-      font-size: xx-large;
-      color: rgb(41, 41, 41);
-      text-shadow: 4px 2px 4px lightgray;
-    }
-  }
-}
+//    << ================= Recent Work Header ================= >>
 
 .header {
   font: $h1-font;
@@ -417,7 +349,6 @@ p {
       width: 300px;
       display: flex;
       margin: 50px 50px 50px 5px;
-      padding: 10px;
       p {
         font: $h3-font;
       }
@@ -425,152 +356,249 @@ p {
   }
 }
 
-.section {
+//    << ================= Details ================= >>
+
+.details-slide {
+  display: none;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
+  i {
+    font-size: 50px;
+  }
+}
+
+#details {
+  @media screen and (max-width: 1620px) {
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+  } 
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0 25px 0 25px;
+  padding: 50px;
+  transition: 0.5s ease-in-out;
+  img {
+    height: fit-content;
+    width: auto;
+  }
+  p {
+    color: $font-primary;
+    font: $h3-font;
+  }
+}
+
+#job-header {
+  display: inline;
+  flex-direction: column;
+  align-items: flex-end;
+  #work-info {
+    display: flex;
+    #company-name {
+      font: $h2-font;
+      color: $font-simple;
+    }
+    #job-title {
+      font: $h1-font;
+      padding: 30px;
+      font-weight: bolder;
+      color: $font-secondary;
+      text-align: center;
+    }
+  }
+}
+
+#job-tag {
+  margin: 20px;
+  p {
+    font: $h4-font;
+    font-weight: bolder;
+    color: black; 
+  }
+}
+
+#skills {
+  list-style-type: none;
+  li {
+    display: flex;
+    margin-bottom: 10px;
+    color: black; 
+    p {
+      color: rgb(80, 80, 80);
+      font: $h4-font;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+  }
+}
+
+//        << +++++++++++++++++ Work Gallery +++++++++++++++++ >>
+
+.active {
+  background-color: #717171 !important;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  &:hover {
+    background-color: #717171;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  &:not(.show) {
+    opacity: 1;
+  }
+}
+
+.navbar {
+  #nav-btn {
+    font-size: xx-large;
+    color: black;
+    font-size: xx-large;
+    margin: 0 25px 0 25px;
+    user-select: none;
+    padding: 50px;
+    &:hover {
+      color: white;
+      text-shadow: 2px 2px 8px black;
+      cursor: pointer;
+    }
+    i {
+      font-size: xx-large;
+      color: rgb(41, 41, 41);
+      text-shadow: 4px 2px 4px lightgray;
+    }
+  }
+}
+
+//    << ================= More Info ================= >>
+
+.more-info-btn {
+  @extend .button2;
+  display: flex;
+}
+
+.hide-info-btn {
+  @extend .button2;
+  display: none;
+}
+
+.more-info {
+  display: none;
   width: 100%;
-  position: relative;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    font: $h3-font;
+    font-weight: bolder;
+    margin: 10px;
+  }
+}
+
+#info-table {
+  margin: 20px;
+  padding: 0;
+  #info-row {
+    @media screen and (max-width: 1024px){
+      flex-direction: column;
+    }
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-color: $secondary-1;
+    border-radius: 25px;
+    box-shadow: 2px 2px 8px black;
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+  }
+}
+
+#info-row-header {
+  @media screen and (max-width: 648px){
+    width: 50%;
+  }
+  width: 25%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  img {
-    height: 200px;
-    width: 200px;
+  align-items: center;
+  padding: 0;
+  p {
+    font: $h3-font;
+    font-weight: bolder;
+    margin: 10px;
+    text-align: left;
   }
-  #summary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    #title {
-      margin: 50px;
-      align-content: center;
-      display: flex;
-      p {
-        color: $font-primary;
-        font: $h1-font;
-      }
-    }
-    #name {
-      margin: 10px;
-      align-content: center;
-      display: flex;
-      p {
-        color: $font-primary;
-        font: $h2-font;
-      }
-    }
-    .details-slide {
-      display: none;
-      opacity: 1;
-      flex-direction: column;
-      align-items: center;
-      i {
-        font-size: 50px;
-      }
-      #details {
-        @media screen and (max-width: 1620px) {
-          flex-direction: column;
-          padding: 10px;
-          margin: 10px;
-        } 
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        margin: 0 25px 0 25px;
-        padding: 50px;
-        transition: 0.5s ease-in-out;
-        img {
-          height: fit-content;
-          width: auto;
-        }
-        p {
-          color: $font-primary;
-          font: $h3-font;
-        }
-        #job-header {
-          display: inline;
-          flex-direction: column;
-          align-items: flex-end;
-          #work-info {
-            display: flex;
-            #company-name {
-              font: $h2-font;
-              color: $font-simple;
-            }
-            #job-title {
-              font: $h1-font;
-              padding: 30px;
-              font-weight: bolder;
-              color: $font-secondary;
-              text-align: center;
-            }
-          }
-        }
-        #job-tag {
-          margin: 20px;
-          p {
-            font: $h4-font;
-            font-weight: bolder;
-            color: black; 
-          }
-        }
-        #skills {
-          list-style-type: none;
-          li {
-            display: flex;
-            margin-bottom: 10px;
-            color: black; 
-            p {
-              color: rgb(80, 80, 80);
-              font: $h4-font;
-              font-weight: bold;
-              margin-left: 20px;
-            }
-          }
-        }
-      }
-    }
-    #profile-pic-container {
-      display: flex;
-      justify-content: center;
-      #profile-pic {
-        position: relative;
-        height: 120px;
-        width: 120px;
-        margin: 25px 0 25px 0;
-        &:hover {
-          cursor: pointer;
-          #jc-pic {
-            opacity: 0;
-          }
-          #git-pic {
-            opacity: 1;
-          }
-        }
-        img {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 120px;
-          height: 120px;
-          opacity: 1;
-          transition: .5s ease;
-          border-radius: 50%;
-        }
-        #jc-pic {
-          opacity: 1;
-        }
-        #git-pic {
-          opacity: 0;
-        }
-      }
-    }
-    #btnContainer {
-      justify-content: center;
-      display: flex;
-      a {
-        text-decoration: none;
-      }
+}
+
+#info-row-content {
+  width: 75%;
+  height: 25%;
+  list-style-type: square;
+  li {
+    font: $h4-font;
+    margin: 10px;
+    text-align: left;
+  }
+}
+
+// < ----------------- Contact ----------------- >
+
+.contact-info {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #phone-number {
+    font: $h4-font;
+    color: white;
+  }
+  #email-address {
+    font: $h4-font;
+    color: white;
+  }
+}
+
+.icon-list {
+  margin: 20px;
+  #icon {
+    font-size: 50px;
+    color: white;
+    margin: 10px;
+    &:hover {
+      cursor: pointer;
+      text-shadow: 2px 2px 8px $secondary-2;
     }
   }
 }
