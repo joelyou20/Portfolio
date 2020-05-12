@@ -10,6 +10,26 @@
   font-family: "Open Sans Light";
   src: url("../fonts/OpenSans-Light.ttf"); }
 
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../fonts/Poppins-Bold.ttf"); }
+
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("../fonts/Poppins-Regular.ttf"); }
+
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("../fonts/Poppins-Medium.ttf"); }
+
+@font-face {
+  font-family: "Poppins Light";
+  src: url("../fonts/Poppins-Light.ttf"); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -22,17 +42,16 @@ body {
   padding: 0;
   overflow: hidden; }
 
-p {
-  margin: auto; }
-  p #highlight {
-    background-color: rgba(255, 241, 112, 0.73);
-    color: #333333;
-    padding: 5px; }
-  p #underline {
-    text-decoration: underline rgba(255, 241, 112, 0.73); }
+p #highlight {
+  background-color: #fff170;
+  color: #333333;
+  padding: 5px; }
+
+p #underline {
+  text-decoration: underline #fff170; }
 
 .button1 {
-  width: auto;
+  width: max-content;
   height: auto;
   display: inline-block;
   padding: 10px 20px 10px 20px;
@@ -42,9 +61,14 @@ p {
   box-sizing: border-box;
   text-decoration: none !important;
   text-align: center;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  opacity: 0;
+  -webkit-animation: mainFadeIn 2s forwards;
+  -o-animation: mainFadeIn 2s forwards;
+  animation: mainFadeIn 2s forwards;
+  animation-delay: 3s; }
   .button1 p {
-    font: 25px "Code Light";
+    font: 25px "Poppins Medium";
     font-size: 25px;
     color: white; }
   .button1:hover {
@@ -55,13 +79,14 @@ p {
       font-weight: bold; }
 
 .button2, .header #resume-btn-container .resume-btn, .more-info-btn, .hide-info-btn {
-  background-color: rgba(22, 171, 240, 0.73);
+  background-color: #16abf0;
   font-weight: bolder;
-  font: 25px "Code Light";
+  font: 25px "Poppins Medium";
   color: white;
   border-radius: 25px;
   box-shadow: 3px 0px 10px black;
   margin: 0 0 50px 0;
+  padding: 10px;
   height: 50px;
   width: 175px;
   justify-content: center;
@@ -73,14 +98,14 @@ p {
   .button2:hover, .header #resume-btn-container .resume-btn:hover, .more-info-btn:hover, .hide-info-btn:hover {
     background-color: white;
     color: black;
-    box-shadow: 3px 0px 10px rgba(22, 171, 240, 0.73);
+    box-shadow: 3px 0px 10px #16abf0;
     cursor: pointer; }
     .button2:hover p, .header #resume-btn-container .resume-btn:hover p, .more-info-btn:hover p, .hide-info-btn:hover p {
       display: none; }
     .button2:hover::after, .header #resume-btn-container .resume-btn:hover::after, .more-info-btn:hover::after, .hide-info-btn:hover::after {
       content: "Click me"; }
 
-.bg-template, #about #bg, #recent-work #bg, #portfolio #bg, #contact #bg {
+.bg-template, #recent-work #bg, #portfolio #bg, #contact #bg {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -100,19 +125,26 @@ p {
   position: relative;
   justify-content: center;
   display: flex;
+  padding-bottom: 50px;
   flex-direction: column; }
 
 #about {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%); }
+  #about video {
+    position: fixed !important;
+    height: auto !important;
+    right: 0; }
   #about #title {
     width: 100%; }
   #about #bg {
-    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(22, 171, 240, 0.73)), url("../images/grayscale-photo-of-computer-laptop-near-white-notebook-and-169573.jpg"); }
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), #16abf0);
+    position: relative;
+    height: 100%;
+    width: auto; }
     #about #bg .section {
       padding: 200px; }
-      @media screen and (max-width: 1024px) {
-        #about #bg .section {
-          padding: 100px; } }
+      #about #bg .section #summary {
+        margin: 200px; }
 
 #recent-work #bg {
   background-color: white; }
@@ -124,12 +156,12 @@ p {
 #portfolio {
   clip-path: polygon(0% 0%, 100% 6%, 100% 100%, 0 100%); }
   #portfolio #bg {
-    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), rgba(255, 241, 112, 0.73)), url("../images/iphone-notebook-pen-working-34578.jpg"); }
+    background-image: linear-gradient(to bottom, rgba(2, 8, 48, 0.52), #fff170), url("../images/iphone-notebook-pen-working-34578.jpg"); }
 
 #contact {
   text-align: center; }
   #contact #contact-tag {
-    font: bold 75px "Code Bold";
+    font: 75px "Poppins Bold";
     margin: 40px;
     font-size: 250%;
     color: #fff564; }
@@ -138,7 +170,7 @@ p {
     #contact #bg .section {
       padding: 10px 0 50px 0; }
   #contact #license {
-    font: 25px "Open Sans Light";
+    font: 25px "Poppins Light";
     color: gray; }
 
 #menu-btn {
@@ -173,7 +205,7 @@ p {
       width: 100%;
       display: flex; } }
   #menu-window .menu-item {
-    font: 25px "Code Light";
+    font: 25px "Poppins Medium";
     font-size: x-large;
     font-weight: bold;
     text-shadow: 1px 1px 4px black;
@@ -223,17 +255,17 @@ p {
     display: flex; }
     #summary #title p {
       color: white;
-      font: bold 75px "Code Bold"; }
+      font: 75px "Poppins Bold"; }
   #summary #name {
     margin: 10px;
     align-content: center;
     display: flex; }
     #summary #name p {
       color: white;
-      font: 60px "Code Bold"; }
+      font: 60px "Poppins Regular"; }
 
 .header {
-  font: bold 75px "Code Bold";
+  font: 75px "Poppins Bold";
   color: rgba(10, 59, 82, 0.73);
   font-weight: bolder;
   text-align: center;
@@ -241,10 +273,10 @@ p {
   font-size: 40px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to top, rgba(255, 241, 112, 0.73), white);
+  background-image: linear-gradient(to top, #fff170, white);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%); }
   .header p {
-    font: 25px "Open Sans Light"; }
+    font: 25px "Poppins Light"; }
   .header #resume-btn-container {
     display: flex;
     flex-direction: row;
@@ -252,7 +284,7 @@ p {
     justify-content: center; }
     .header #resume-btn-container p {
       margin: 50px 5px 50px 50px;
-      font: 25px "Open Sans Light"; }
+      font: 25px "Poppins Light"; }
     .header #resume-btn-container a {
       text-decoration: none; }
     .header #resume-btn-container .resume-btn {
@@ -264,7 +296,7 @@ p {
           height: 75px;
           width: 160px; } }
       .header #resume-btn-container .resume-btn p {
-        font: 25px "Code Light"; }
+        font: 25px "Poppins Medium"; }
 
 .details-slide {
   display: none;
@@ -290,20 +322,22 @@ p {
     width: auto; }
   #details p {
     color: white;
-    font: 25px "Code Light"; }
+    font: 25px "Poppins Medium"; }
 
 #job-header {
   display: inline;
   flex-direction: column;
-  align-items: flex-end; }
+  align-items: flex-end;
+  padding: 0 40px 0 40px; }
   #job-header #work-info {
-    display: flex; }
+    display: flex;
+    justify-content: center; }
     #job-header #work-info #company-name {
-      font: 60px "Code Bold";
+      font: 60px "Poppins Regular";
       color: rgba(49, 49, 49, 0.52); }
     #job-header #work-info #job-title {
-      font: bold 75px "Code Bold";
-      padding: 30px;
+      font: 75px "Poppins Bold";
+      padding: 20px 0 10px 0;
       font-weight: bolder;
       color: black;
       text-align: center; }
@@ -311,7 +345,7 @@ p {
 #job-tag {
   margin: 20px; }
   #job-tag p {
-    font: 25px "Open Sans Light";
+    font: 25px "Poppins Light";
     font-weight: bolder;
     color: black; }
 
@@ -323,7 +357,7 @@ p {
     color: black; }
     #skills li p {
       color: #505050;
-      font: 25px "Open Sans Light";
+      font: 25px "Poppins Light";
       font-weight: bold;
       margin-left: 20px; }
 
@@ -393,7 +427,7 @@ p {
   align-items: center;
   text-align: center; }
   .more-info p {
-    font: 25px "Code Light";
+    font: 25px "Poppins Medium";
     font-weight: bolder;
     margin: 10px; }
 
@@ -406,7 +440,7 @@ p {
     border-width: 3px;
     border-left-width: 10px;
     border-right-width: 10px;
-    border-color: rgba(22, 171, 240, 0.73);
+    border-color: #16abf0;
     border-radius: 25px;
     box-shadow: 2px 2px 8px black;
     display: flex;
@@ -429,7 +463,7 @@ p {
     #info-row-header {
       width: 50%; } }
   #info-row-header p {
-    font: 25px "Code Light";
+    font: 25px "Poppins Medium";
     font-weight: bolder;
     margin: 10px;
     text-align: left; }
@@ -439,7 +473,7 @@ p {
   height: 25%;
   list-style-type: square; }
   #info-row-content li {
-    font: 25px "Open Sans Light";
+    font: 25px "Poppins Light";
     margin: 10px;
     text-align: left; }
 
@@ -449,10 +483,10 @@ p {
   flex-direction: column;
   align-items: center; }
   .contact-info #phone-number {
-    font: 25px "Open Sans Light";
+    font: 25px "Poppins Light";
     color: white; }
   .contact-info #email-address {
-    font: 25px "Open Sans Light";
+    font: 25px "Poppins Light";
     color: white; }
 
 .icon-list {
@@ -463,4 +497,158 @@ p {
     margin: 10px; }
     .icon-list #icon:hover {
       cursor: pointer;
-      text-shadow: 2px 2px 8px rgba(255, 241, 112, 0.73); }
+      text-shadow: 2px 2px 8px #fff170; }
+
+.container {
+  height: 100%; }
+  .container .box {
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .container .box .title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: auto;
+      width: max-content; }
+      .container .box .title .block {
+        width: 0%;
+        height: 100%;
+        background: #16abf0;
+        position: absolute;
+        animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        display: flex; }
+      .container .box .title h1 {
+        font: 75px "Poppins Bold";
+        font-size: 100px;
+        color: #fff;
+        -webkit-animation: mainFadeIn 2s forwards;
+        -o-animation: mainFadeIn 2s forwards;
+        animation: mainFadeIn 2s forwards;
+        animation-delay: 1.6s;
+        opacity: 0;
+        display: flex;
+        align-items: baseline;
+        position: relative; }
+        .container .box .title h1 span {
+          width: 0px;
+          height: 0px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          background: #ffb510;
+          -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+          animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+          animation-delay: 2s;
+          margin-left: 5px;
+          margin-top: -10px;
+          position: absolute;
+          bottom: 13px;
+          right: -12px; }
+    .container .box .role {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: auto;
+      margin-top: -10px; }
+      .container .box .role .block {
+        width: 0%;
+        height: 100%;
+        background: #fff170;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex; }
+      .container .box .role p {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font: 25px "Poppins Light";
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 5px; }
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0; }
+  50% {
+    width: 100%;
+    left: 0; }
+  100% {
+    width: 0;
+    left: 100%; } }
+
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0; }
+  50% {
+    width: 100%;
+    left: 0; }
+  100% {
+    width: 0;
+    left: 100%; } }
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes popIn {
+  0% {
+    width: 0px;
+    height: 0px;
+    background: #e9d856;
+    border: 0px solid #ddd;
+    opacity: 0; }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: #e9d856;
+    opacity: 1;
+    bottom: 45px; }
+  65% {
+    width: 7px;
+    height: 7px;
+    bottom: 0px;
+    width: 15px; }
+  80% {
+    width: 10px;
+    height: 10px;
+    bottom: 20px; }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: #e9d856;
+    border: 0px solid #222;
+    bottom: 13px; } }
+
+@keyframes secFadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.5; } }
+
+@keyframes top {
+  0% {
+    opacity: 0;
+    bottom: -80px; }
+  100% {
+    opacity: 1;
+    bottom: 0px; } }
+
+@keyframes icon {
+  0% {
+    opacity: 0;
+    transform: scale(0); }
+  50% {
+    opacity: 1;
+    transform: scale(1.3) rotate(-2deg); }
+  100% {
+    opacity: 1;
+    bottom: 0px; } }

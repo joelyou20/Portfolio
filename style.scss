@@ -4,6 +4,11 @@
 
 // < ----------------- Root Elements ----------------- >
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -19,7 +24,6 @@ body {
 }
 
 p {
-  margin: auto;
   #highlight {
     background-color: $secondary-2;
     color: rgb(51, 51, 51);
@@ -33,7 +37,7 @@ p {
 // < ----------------- Templates ----------------- >
 
 .button1 {
-  width: auto;
+  width: max-content;
   height: auto;
   display: inline-block;
   padding: 10px 20px 10px 20px;
@@ -44,6 +48,11 @@ p {
   text-decoration: none !important;
   text-align:center;
   transition: all 0.2s;
+  opacity: 0;
+  -webkit-animation: mainFadeIn 2s forwards;
+  -o-animation: mainFadeIn 2s forwards;
+  animation: mainFadeIn 2s forwards;
+  animation-delay: 3s;
   p {
     font: $h3-font;
     font-size: 25px;
@@ -67,6 +76,7 @@ p {
   border-radius: 25px;
   box-shadow: 3px 0px 10px black;
   margin: 0 0 50px 0;
+  padding: 10px;
   height: 50px;
   width: 175px;
   justify-content: center;
@@ -114,6 +124,7 @@ p {
   position: relative;
   justify-content: center;
   display: flex;
+  padding-bottom: 50px;
   flex-direction: column;
 }
 
@@ -125,18 +136,27 @@ p {
     100% 100%, /* right bottom */
     0 90% /* left bottom */
   );
+  video {
+    position: fixed !important;
+    height: auto !important;
+    right: 0;
+  }
   #title {
     width: 100%;
   }
   #bg {
-    @extend .bg-template;
     background-image:
-      linear-gradient(to bottom, $primary, $secondary-1),
-      url($about-img);
+      linear-gradient(to bottom, $primary, $secondary-1);
+    position: relative;
+    height: 100%;
+    width: auto;
     .section {
+      // @media screen and (max-width: 1024px){
+      //   padding: 100px;
+      // }
       padding: 200px;
-      @media screen and (max-width: 1024px){
-        padding: 100px;
+      #summary {
+        margin: 200px;
       }
     }
   }
@@ -393,15 +413,17 @@ p {
   display: inline;
   flex-direction: column;
   align-items: flex-end;
+  padding: 0 40px 0 40px;
   #work-info {
     display: flex;
+    justify-content: center;
     #company-name {
       font: $h2-font;
       color: $font-simple;
     }
     #job-title {
       font: $h1-font;
-      padding: 30px;
+      padding: 20px 0 10px 0;
       font-weight: bolder;
       color: $font-secondary;
       text-align: center;
@@ -600,5 +622,210 @@ p {
       cursor: pointer;
       text-shadow: 2px 2px 8px $secondary-2;
     }
+  }
+}
+
+.container {
+  height: 100%;
+  .box {
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: auto;
+      width: max-content;
+
+      .block {
+        width: 0%;
+        height: 100%;
+        background: $secondary-1;
+        position: absolute;
+        animation: mainBlock 2s cubic-bezier(.74, .06, .4, .92) forwards;
+        display: flex;
+      }
+
+      h1 {
+        font: $h1-font;
+        font-size: 100px;
+        color: #fff;
+        -webkit-animation: mainFadeIn 2s forwards;
+        -o-animation: mainFadeIn 2s forwards;
+        animation: mainFadeIn 2s forwards;
+        animation-delay: 1.6s;
+        opacity: 0;
+        display: flex;
+        align-items: baseline;
+        position: relative;
+
+        span {
+          width:0px;
+          height: 0px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+
+          background: #ffb510;
+          -webkit-animation: load 0.6s cubic-bezier(.74, .06, .4, .92) forwards;
+          animation: popIn 0.8s cubic-bezier(.74, .06, .4, .92) forwards;
+          animation-delay: 2s;
+          margin-left: 5px;
+          margin-top: -10px;
+          position: absolute;
+          bottom: 13px;
+          right: -12px;
+
+        }
+      }
+    }
+
+    .role {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: auto;
+      margin-top: -10px;
+
+      .block {
+        width: 0%;
+        height: 100%;
+        background: $secondary-2;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(.74, .06, .4, .92) forwards;
+        animation-delay: 2s;
+        display: flex;
+      }
+
+      p {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font: $h4-font;
+        color: $font-primary;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+      }
+    }
+  }
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    width: 0px;
+    height: 0px;
+    background: #e9d856;
+    border: 0px solid #ddd;
+    opacity: 0;
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: #e9d856;
+    opacity: 1;
+    bottom: 45px;
+  }
+   65% {
+      width: 7px;
+    height: 7px;
+      bottom: 0px;
+      width: 15px
+   }
+   80% {
+      width: 10px;
+    height: 10px;
+      bottom: 20px
+   }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: #e9d856;
+    border: 0px solid #222;
+    bottom: 13px;
+
+  }
+}
+
+@keyframes secFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes top {
+  0% {
+    opacity: 0;
+     bottom: -80px
+  }
+  100% {
+    opacity: 1;
+     bottom: 0px
+
+  }
+}
+
+@keyframes icon {
+  0% {
+    opacity: 0;
+     transform: scale(0.0);
+  }
+   50% {
+      opacity: 1;
+     transform: scale(1.3) rotate(-02deg);
+   }
+  100% {
+    opacity: 1;
+     bottom: 0px;
   }
 }
