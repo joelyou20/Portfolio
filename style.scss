@@ -115,6 +115,133 @@ p {
   position: relative;
 }
 
+// < ----------------- Animations ----------------- >
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    width: 0px;
+    height: 0px;
+    background: #e9d856;
+    border: 0px solid #ddd;
+    opacity: 0;
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: #e9d856;
+    opacity: 1;
+    bottom: 45px;
+  }
+   65% {
+      width: 7px;
+    height: 7px;
+      bottom: 0px;
+      width: 15px
+   }
+   80% {
+      width: 10px;
+    height: 10px;
+      bottom: 20px
+   }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: #e9d856;
+    border: 0px solid #222;
+    bottom: 13px;
+
+  }
+}
+
+@keyframes secFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes top {
+  0% {
+    opacity: 0;
+     bottom: -80px
+  }
+  100% {
+    opacity: 1;
+     bottom: 0px
+
+  }
+}
+
+@keyframes icon {
+  0% {
+    opacity: 0;
+     transform: scale(0.0);
+  }
+   50% {
+      opacity: 1;
+     transform: scale(1.3) rotate(-02deg);
+   }
+  100% {
+    opacity: 1;
+     bottom: 0px;
+  }
+}
+
 // < ----------------- Section Roots ----------------- >
 
 .section {
@@ -156,9 +283,6 @@ p {
     height: 100%;
     width: auto;
     .section {
-      // @media screen and (max-width: 1024px){
-      //   padding: 100px;
-      // }
       padding: 200px;
       #summary {
         margin: 200px;
@@ -480,16 +604,6 @@ p {
   }
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -717,120 +831,5 @@ p {
         letter-spacing: 5px;
       }
     }
-  }
-}
-
-@keyframes mainBlock {
-  0% {
-    width: 0%;
-    left: 0;
-
-  }
-  50% {
-    width: 100%;
-    left: 0;
-
-  }
-  100% {
-    width: 0;
-    left: 100%;
-  }
-}
-
-@keyframes secBlock {
-  0% {
-    width: 0%;
-    left: 0;
-
-  }
-  50% {
-    width: 100%;
-    left: 0;
-
-  }
-  100% {
-    width: 0;
-    left: 100%;
-  }
-}
-
-@keyframes mainFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes popIn {
-  0% {
-    width: 0px;
-    height: 0px;
-    background: #e9d856;
-    border: 0px solid #ddd;
-    opacity: 0;
-  }
-  50% {
-    width: 10px;
-    height: 10px;
-    background: #e9d856;
-    opacity: 1;
-    bottom: 45px;
-  }
-   65% {
-      width: 7px;
-    height: 7px;
-      bottom: 0px;
-      width: 15px
-   }
-   80% {
-      width: 10px;
-    height: 10px;
-      bottom: 20px
-   }
-  100% {
-    width: 7px;
-    height: 7px;
-    background: #e9d856;
-    border: 0px solid #222;
-    bottom: 13px;
-
-  }
-}
-
-@keyframes secFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes top {
-  0% {
-    opacity: 0;
-     bottom: -80px
-  }
-  100% {
-    opacity: 1;
-     bottom: 0px
-
-  }
-}
-
-@keyframes icon {
-  0% {
-    opacity: 0;
-     transform: scale(0.0);
-  }
-   50% {
-      opacity: 1;
-     transform: scale(1.3) rotate(-02deg);
-   }
-  100% {
-    opacity: 1;
-     bottom: 0px;
   }
 }
