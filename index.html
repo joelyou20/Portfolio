@@ -6,9 +6,11 @@
     <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/info.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/loopVid.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/animate.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/workSlide.js"></script>
     <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
-    <meta property="og:image" content="./images/Joel_Cribby_Photo.jpg" />
+    <meta property="og:image" content="http://joelcribby.com/Joel_Cribby_Profile_Photo.png" />
     <link rel="stylesheet" href="https://cdnjs.Cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>J. Cribby Portfolio</title>
@@ -23,11 +25,9 @@
       <a class="menu-item" href="#contact"><p>CONTACT</p></a>
     </div>
     <div id="about">
-      <div id="video-container">
-        <video autoplay muted loop preload="auto">
-          <source src="./images/wave-comp.mp4" type="video/mp4">
-        </video>
-      </div>
+      <video id="vid1" muted preload="auto">
+        <source src="./images/devices.mp4" type="video/mp4">
+      </video>
       <div id="bg">
         <div class="section">
           <div class="container">
@@ -41,17 +41,26 @@
                   <p>Software Developer & UI Designer</p>
               </div>
             </div>
+            <div id="summary">
+              <a class="button1" href="#recent-work"><p>Check out my work</p></a>
+            </div>
           </div>
-          <div id="summary">
-            <a class="button1" href="#recent-work"><p>Check out my work</p></a>
+          <div class="bio module">
+            <p>First, let me introduce myself.</p>
+            <div id="bio-content">
+              <!-- <img src="./images/Joel_Cribby_Profile_Photo.png"> -->
+              <p>
+                Hi, I'm Joel Cribby. <br>I'm an avid developer and passionate designer. <br>I work hard to bring beauty to simplicity.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div id="recent-work">
       <div class="header">
-        Work history
-        <div>
+        <div class="module">
+          Work history
           <p>
             My love for designing software and working with people has lead me to 
             some great opportunities. Below are a few examples of my professional work.
@@ -63,13 +72,15 @@
             </div>
           </a> -->
           <div id="resume-btn-container">
-            <p>Download a copy of my resume:</p>
             <a href="./docs/Joel_Cribby_Resume_2020.pdf" download>
               <div class="resume-btn"><p>Download Resume</p></div>
             </a>
           </div>
         </div>
       </div>
+      <video id="vid2" autoplay muted preload="auto">
+        <source src="./images/devices.mp4" type="video/mp4">
+      </video>
       <div id="bg">
         <div class="section">
           <div id="summary">
@@ -78,11 +89,11 @@
                 <img src="./images/logosm.png">
                 <div id="job-header">
                   <div id="work-info">
-                    <p id="job-title">
+                    <p id="job-title" class="module">
                       Software Developer
                     </p>
                   </div>
-                  <div id="job-tag">
+                  <div id="job-tag" class="module">
                     <p>
                       Operated as Devops Lead for multiple Web Application projects with 
                       a focus on Gitlab CI and deployments using IIS and Node-js.
