@@ -1,6 +1,7 @@
 @import "scss/color";
 @import "scss/font";
 @import "scss/images";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 
 // < ----------------- Root Elements ----------------- >
 
@@ -14,13 +15,13 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow-x: hidden;
+  cursor: none;
 }
 
 body {
   margin: 0;
   padding: 0;
-  // overflow: hidden;
 }
 
 p {
@@ -34,6 +35,57 @@ p {
   }
 }
 
+// < ----------------- Cursor ----------------- >
+
+.cursor-circle {
+	position: absolute;
+  border: solid 1px $hl-primary;
+	width: 60px; 
+	height: 60px; 
+  border-radius: 50%;  
+  z-index: 50;
+  pointer-events: none;
+}
+
+.cursor-dot {
+	position: absolute;
+  border: solid 2px $hl-primary;
+  color: $hl-primary;
+	width: 1px; 
+	height: 1px; 
+  border-radius: 50%;  
+  z-index: 50;
+  pointer-events: none;
+}
+
+// < ----------------- Nodes ----------------- >
+
+.node {
+	position: absolute;
+  border: solid 2px $hl-primary;
+  fill: $hl-primary;
+  box-shadow: 0px 0px 10px $font-secondary;
+  color: $hl-primary;
+	width: 1px; 
+	height: 1px; 
+  border-radius: 50%;  
+  z-index: 1;
+  &:nth-child(even) {
+    border: solid 2px $hl-secondary;
+    fill: $hl-secondary;
+    box-shadow: 0px 0px 10px $font-primary;
+  }
+}
+
+// < ----------------- Canvas ----------------- >
+
+.canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
 // < ----------------- Templates ----------------- >
 
 .button1 {
@@ -41,7 +93,7 @@ p {
   height: auto;
   display: inline-block;
   padding: 10px 20px 10px 20px;
-  border: 2px solid white;
+  border: 2px solid $font-primary;
   margin: 10px;
   border-radius: 5px !important;
   box-sizing: border-box;
@@ -56,25 +108,24 @@ p {
   p {
     font: $h3-font;
     font-size: 25px;
-    color:white;
+    color:$font-primary;
   }
   &:hover {
     p {
-      color:black;
+      color: $font-invert;
       font-weight: bold;
     }
-    background-color:white;
-    cursor: pointer;
+    background-color: $font-primary;
   }
 }
 
 .button2 {
-  background-color: $bg-primary;
+  background-color: $hl-primary;
   font-weight: bolder;
   font: $h3-font;
-  color: white;
+  color: $font-primary;
   border-radius: 25px;
-  box-shadow: 3px 0px 10px black;
+  box-shadow: 3px 0px 10px $bg-primary;
   margin: 0 0 50px 0;
   padding: 10px;
   height: 50px;
@@ -88,9 +139,8 @@ p {
   }
   &:hover {
     background-color: $font-primary;
-    color: black;
-    box-shadow: 3px 0px 10px $bg-primary;
-    cursor: pointer;
+    color: $bg-primary;
+    box-shadow: 3px 0px 10px $hl-primary;
     p {
       display: none;
     }
@@ -157,14 +207,14 @@ p {
   0% {
     width: 0px;
     height: 0px;
-    background: $bg-primary;
+    background: $hl-primary;
     border: 0px solid $font-primary;
     opacity: 0;
   }
   50% {
     width: 10px;
     height: 10px;
-    background: $bg-primary;
+    background: $hl-primary;
     opacity: 1;
     bottom: 45px;
   }
@@ -182,7 +232,7 @@ p {
   100% {
     width: 7px;
     height: 7px;
-    background: $bg-primary;
+    background: $hl-primary;
     border: 0px solid $font-secondary;
     bottom: 13px;
 
@@ -276,7 +326,7 @@ p {
     width: 100%;
   }
   #bg {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $bg-primary;
     position: absolute;
     top: 0;
     height: 100%;
@@ -295,7 +345,7 @@ p {
   #bg {
     @extend .bg-template;
     box-decoration-break: slice;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $bg-primary;
     .section {
       // height: 1024px;
       #summary {
@@ -328,7 +378,7 @@ p {
       padding: 10px 0 50px 0;
     }
     @extend .bg-template;
-    background-color: black;
+    background-color: $bg-primary;
   }
   #license {
     font: $h4-font;
@@ -350,13 +400,12 @@ p {
   z-index: 50;
   i {
     font-size: 30px;
-    text-shadow: 2px 2px 8px black;
+    text-shadow: 2px 2px 8px $bg-primary;
   }
   &:hover {
     -webkit-filter: invert(100%) !important;
     filter: invert(0%);
     transition: 0.2s ease-in-out;
-    cursor: pointer;
   }
 }
 
@@ -401,7 +450,6 @@ p {
     width: 120px;
     margin: 25px 0 25px 0;
     &:hover {
-      cursor: pointer;
       #jc-pic {
         opacity: 0;
       }
@@ -450,7 +498,7 @@ p {
       .block {
         width: 0%;
         height: 100%;
-        background: $bg-primary;
+        background: $hl-primary;
         position: absolute;
         animation: mainBlock 2s cubic-bezier(.74, .06, .4, .92) forwards;
         display: flex;
@@ -476,7 +524,7 @@ p {
           -moz-border-radius: 50%;
           border-radius: 50%;
 
-          background: $bg-primary;
+          background: $hl-primary;
           -webkit-animation: load 0.6s cubic-bezier(.74, .06, .4, .92) forwards;
           animation: popIn 0.8s cubic-bezier(.74, .06, .4, .92) forwards;
           animation-delay: 2s;
@@ -501,7 +549,7 @@ p {
       .block {
         width: 0%;
         height: 100%;
-        background: $bg-secondary;
+        background: $hl-secondary;
         position: absolute;
         animation: mainBlock 2s cubic-bezier(.74, .06, .4, .92) forwards;
         animation-delay: 2s;
@@ -645,7 +693,7 @@ p {
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 10px;
-    box-shadow: 20px 20px 0 $bg-primary;
+    box-shadow: 20px 20px 0 $hl-primary;
   }
   p {
     color: $font-primary;
@@ -706,7 +754,6 @@ p {
 }
 
 .dot {
-  cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -739,14 +786,13 @@ p {
     user-select: none;
     padding: 50px;
     &:hover {
-      color: $bg-primary;
+      color: $hl-secondary;
       text-shadow: 2px 2px 8px $font-secondary;
-      cursor: pointer;
     }
     i {
       font-size: xx-large;
       color: $font-simple;
-      text-shadow: 4px 2px 4px $bg-primary;
+      text-shadow: 4px 2px 4px $hl-primary;
     }
   }
 }
@@ -789,7 +835,7 @@ p {
     border-width: 3px;
     border-left-width: 10px;
     border-right-width: 10px;
-    border-color: $bg-primary;
+    border-color: $hl-primary;
     border-radius: 25px;
     box-shadow: 2px 2px 8px black;
     display: flex;
@@ -853,8 +899,7 @@ p {
     color: $font-primary;
     margin: 10px;
     &:hover {
-      cursor: pointer;
-      text-shadow: 2px 2px 8px $bg-secondary;
+      text-shadow: 2px 2px 8px $hl-secondary;
     }
   }
 }

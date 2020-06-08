@@ -2,11 +2,13 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/scroll.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/cache.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/menu.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/info.js"></script>
-    <script language="JavaScript" type="text/javascript" src="./scripts/loopVid.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/cursor.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./scripts/canvas.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/animate.js"></script>
     <script language="JavaScript" type="text/javascript" src="./scripts/workSlide.js"></script>
     <script src="https://kit.fontawesome.com/07dcdffa05.js" crossorigin="anonymous"></script>
@@ -16,6 +18,10 @@
     <title>J. Cribby Portfolio</title>
   </head>
   <body>
+    <div id="canvas" class="canvas"></div>
+    <span id="cursor-circle" class="cursor-circle"></span>
+    <span id="cursor-dot" class="cursor-dot"></span>
+    
     <div id="menu-btn" onmouseover="openMenu()">
       <i class="fas fa-bars"></i>
     </div>
@@ -25,9 +31,6 @@
       <a class="menu-item" href="#contact"><p>CONTACT</p></a>
     </div>
     <div id="about">
-      <video id="vid1" muted preload="auto">
-        <source src="./images/devices.mp4" type="video/mp4">
-      </video>
       <div id="bg">
         <div class="section">
           <div class="container">
@@ -78,9 +81,6 @@
           </div>
         </div>
       </div>
-      <video id="vid2" autoplay muted preload="auto">
-        <source src="./images/devices.mp4" type="video/mp4">
-      </video>
       <div id="bg">
         <div class="section">
           <div id="summary">

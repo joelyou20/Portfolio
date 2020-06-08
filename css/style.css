@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 @font-face {
   font-family: "Code Bold";
   src: url("../fonts/code_bold-webfont.woff"); }
@@ -35,19 +36,60 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: auto; }
+  overflow-x: hidden;
+  cursor: none; }
 
 body {
   margin: 0;
   padding: 0; }
 
 p #highlight {
-  background-color: #5300ee;
+  background-color: #2c3663;
   color: #333333;
   padding: 5px; }
 
 p #underline {
-  text-decoration: underline #5300ee; }
+  text-decoration: underline #2c3663; }
+
+.cursor-circle {
+  position: absolute;
+  border: solid 1px #2911ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 50;
+  pointer-events: none; }
+
+.cursor-dot {
+  position: absolute;
+  border: solid 2px #2911ff;
+  color: #2911ff;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  z-index: 50;
+  pointer-events: none; }
+
+.node {
+  position: absolute;
+  border: solid 2px #2911ff;
+  fill: #2911ff;
+  box-shadow: 0px 0px 10px #d4d4d4;
+  color: #2911ff;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  z-index: 1; }
+  .node:nth-child(even) {
+    border: solid 2px #f82bff;
+    fill: #f82bff;
+    box-shadow: 0px 0px 10px white; }
+
+.canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100; }
 
 .button1 {
   width: max-content;
@@ -71,14 +113,13 @@ p #underline {
     font-size: 25px;
     color: white; }
   .button1:hover {
-    background-color: white;
-    cursor: pointer; }
+    background-color: white; }
     .button1:hover p {
       color: black;
       font-weight: bold; }
 
 .button2, .header #resume-btn-container .resume-btn, .more-info-btn, .hide-info-btn {
-  background-color: #c800cf;
+  background-color: #2911ff;
   font-weight: bolder;
   font: 25px "Poppins Medium";
   color: white;
@@ -97,8 +138,7 @@ p #underline {
   .button2:hover, .header #resume-btn-container .resume-btn:hover, .more-info-btn:hover, .hide-info-btn:hover {
     background-color: white;
     color: black;
-    box-shadow: 3px 0px 10px #c800cf;
-    cursor: pointer; }
+    box-shadow: 3px 0px 10px #2911ff; }
     .button2:hover p, .header #resume-btn-container .resume-btn:hover p, .more-info-btn:hover p, .hide-info-btn:hover p {
       display: none; }
     .button2:hover::after, .header #resume-btn-container .resume-btn:hover::after, .more-info-btn:hover::after, .hide-info-btn:hover::after {
@@ -150,13 +190,13 @@ p #underline {
   0% {
     width: 0px;
     height: 0px;
-    background: #c800cf;
+    background: #2911ff;
     border: 0px solid white;
     opacity: 0; }
   50% {
     width: 10px;
     height: 10px;
-    background: #c800cf;
+    background: #2911ff;
     opacity: 1;
     bottom: 45px; }
   65% {
@@ -171,7 +211,7 @@ p #underline {
   100% {
     width: 7px;
     height: 7px;
-    background: #c800cf;
+    background: #2911ff;
     border: 0px solid #d4d4d4;
     bottom: 13px; } }
 
@@ -239,7 +279,7 @@ p #underline {
   #about #title {
     width: 100%; }
   #about #bg {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: black;
     position: absolute;
     top: 0;
     height: 100%;
@@ -251,7 +291,7 @@ p #underline {
 
 #recent-work #bg {
   box-decoration-break: slice;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: black; }
   #recent-work #bg .section #summary #title {
     margin: 0px; }
     #recent-work #bg .section #summary #title p {
@@ -288,8 +328,7 @@ p #underline {
   #menu-btn:hover {
     -webkit-filter: invert(100%) !important;
     filter: invert(0%);
-    transition: 0.2s ease-in-out;
-    cursor: pointer; }
+    transition: 0.2s ease-in-out; }
 
 #menu-window {
   right: 0;
@@ -324,12 +363,10 @@ p #underline {
     height: 120px;
     width: 120px;
     margin: 25px 0 25px 0; }
-    #profile-pic-container #profile-pic:hover {
-      cursor: pointer; }
-      #profile-pic-container #profile-pic:hover #jc-pic {
-        opacity: 0; }
-      #profile-pic-container #profile-pic:hover #git-pic {
-        opacity: 1; }
+    #profile-pic-container #profile-pic:hover #jc-pic {
+      opacity: 0; }
+    #profile-pic-container #profile-pic:hover #git-pic {
+      opacity: 1; }
     #profile-pic-container #profile-pic img {
       position: absolute;
       top: 0;
@@ -364,7 +401,7 @@ p #underline {
       .container .box .title .block {
         width: 0%;
         height: 100%;
-        background: #c800cf;
+        background: #2911ff;
         position: absolute;
         animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
         display: flex; }
@@ -386,7 +423,7 @@ p #underline {
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
           border-radius: 50%;
-          background: #c800cf;
+          background: #2911ff;
           -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
           animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
           animation-delay: 2s;
@@ -405,7 +442,7 @@ p #underline {
       .container .box .role .block {
         width: 0%;
         height: 100%;
-        background: #5300ee;
+        background: #f82bff;
         position: absolute;
         animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
         animation-delay: 2s;
@@ -520,7 +557,7 @@ p #underline {
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 10px;
-    box-shadow: 20px 20px 0 #c800cf; }
+    box-shadow: 20px 20px 0 #2911ff; }
   #details p {
     color: white;
     font: 25px "Poppins Medium"; }
@@ -566,7 +603,6 @@ p #underline {
   background-color: #717171 !important; }
 
 .dot {
-  cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -594,13 +630,12 @@ p #underline {
   user-select: none;
   padding: 50px; }
   .navbar #nav-btn:hover {
-    color: #c800cf;
-    text-shadow: 2px 2px 8px #d4d4d4;
-    cursor: pointer; }
+    color: #f82bff;
+    text-shadow: 2px 2px 8px #d4d4d4; }
   .navbar #nav-btn i {
     font-size: xx-large;
     color: #d9d6ff;
-    text-shadow: 4px 2px 4px #c800cf; }
+    text-shadow: 4px 2px 4px #2911ff; }
 
 .more-info-btn {
   display: flex; }
@@ -629,7 +664,7 @@ p #underline {
     border-width: 3px;
     border-left-width: 10px;
     border-right-width: 10px;
-    border-color: #c800cf;
+    border-color: #2911ff;
     border-radius: 25px;
     box-shadow: 2px 2px 8px black;
     display: flex;
@@ -685,5 +720,4 @@ p #underline {
     color: white;
     margin: 10px; }
     .icon-list #icon:hover {
-      cursor: pointer;
-      text-shadow: 2px 2px 8px #5300ee; }
+      text-shadow: 2px 2px 8px #f82bff; }
