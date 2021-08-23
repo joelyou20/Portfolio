@@ -516,6 +516,11 @@ p {
   }
 }
 
+.img-icon {
+  height: 30px;
+  width: 30px;
+}
+
 #details {
   @media screen and (max-width: 1620px) {
     flex-direction: column;
